@@ -1,0 +1,3 @@
+svn update
+mvn  -Phadoop_non_secure compile
+
