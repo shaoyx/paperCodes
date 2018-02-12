@@ -1,0 +1,234 @@
+package org.apache.giraph.subgraph.graphextraction;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+
+import org.apache.giraph.edge.Edge;
+import org.apache.giraph.graph.Vertex;
+import org.apache.giraph.partition.SimplePartition;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.util.Progressable;
+import org.apache.log4j.Logger;
+
+/**
+ * Customized local storage for graph extraction.
+ * 	-- configured by "giraph.partitionClass"
+ * 
+ * Mapping global ids to a continuous local ids, 
+ * so that the random accessing [getVertex()] can be speed up.  
+ * 
+ * @author yxshao
+ *
+ */
+public class ArrayBasedGraphStore 
+extends SimplePartition<IntWritable, IntWritable, IntWritable, PartialAggregatedPath>
+implements BasicGraphStoreInterface
+{
+
+	private static final Logger LOG = Logger.getLogger(ArrayBasedGraphStore.class);
+	
+	/* global ids to local ids */
+	private HashMap<Integer, Integer> gid2lid;
+	
+	/* local ids to global ids */
+//	private int[] lid2gid;
+	
+	/* record the maximal local id */
+	private int maxLocalId;
+	
+	/* record the number of local vertices; this is also the minimal id of remote vertices. */
+	private int localVertexCount;
+	
+	/* local vertices (core vertices) */
+	private BasicVertex[] localVertex;
+	
+	/* remote vertices (the neighbors of local vertex, but are not the core vertices in this partition). */
+	private BasicVertex[] remoteVertex;
+	
+	public ArrayBasedGraphStore() { }
+	
+	public void initialize(int partitionId, Progressable progressable) {
+		super.initialize(partitionId, progressable);
+		gid2lid = new HashMap<Integer, Integer>();
+		maxLocalId = 0;
+		localVertexCount = 0;
+	}
+	
+	/**
+	 * Finalize the input partition as the customized local storage format.
+	 * This method has to be called after the INPUT superstep (-1).
+	 */
+	public void inititalGraphStore() {
+		for(Vertex<IntWritable, IntWritable, IntWritable, PartialAggregatedPath> vertex : this.getVertexs()){
+			gid2lid.put(vertex.getId().get(), maxLocalId);
+			maxLocalId++;
+			localVertexCount++;			
+		}		
+		localVertex = new BasicVertex[localVertexCount];
+
+		for(Vertex<IntWritable, IntWritable, IntWritable, PartialAggregatedPath> vertex : this.getVertexs()){
+			int lid = gid2lid.get(vertex.getId().get());
+			localVertex[lid] = new BasicVertex();
+			localVertex[lid].initialize(vertex.getId().get(), vertex.getValue().get()); //each vertex still stores the global id. 
+			/* 
+			 * add neighbor and add edge
+			 * NOTE THAT: the actual vertex of a neighbor is created by
+			 * outgoing neighbor's label identification. (superstep 2)  
+			 */
+			for(Edge<IntWritable, IntWritable> edge : vertex.getEdges()){
+				int targetId = edge.getTargetVertexId().get();
+				int weight = 1;
+				int label = edge.getValue().get();
+				if(gid2lid.get(targetId) == null) {
+					gid2lid.put(targetId, maxLocalId);
+					maxLocalId++;
+				}
+				BasicEdge be = new BasicEdge();
+				be.initialize(gid2lid.get(targetId), label, weight);
+				localVertex[lid].addOutNeighbor(be);
+			}
+		}
+		this.clear(); //clear the original vertex partition.
+		
+		remoteVertex =  new BasicVertex[Math.max(1000, (maxLocalId - localVertexCount) * 2)]; // at least reserve a space with 1000 entry.
+		for(int gid : gid2lid.keySet()) {
+			int lid = gid2lid.get(gid);
+			if(lid >= localVertexCount) { //remote vertex
+				remoteVertex[lid - localVertexCount] = new BasicVertex();
+				remoteVertex[lid - localVertexCount].initialize(gid, -1);
+			}
+		}
+		
+//		this.dump();
+	}
+	
+	/**
+	 * Return the number of local vertex
+	 */
+	public long getVertexCount(){
+		return localVertexCount;
+	}
+	
+	public long getTotalVertexCount() {
+		return maxLocalId;
+	}
+	
+	/**
+	 * Return the number of out edges
+	 */
+	public long getEdgeCount(){
+		long size = 0;
+		for(int i = 0; i < localVertexCount; ++i){
+			size += localVertex[i].getOutDegree();
+		}
+		return size;
+	}
+	
+	public long getTotalEdgeCount(){
+		long size = 0;
+		size += getEdgeCount();
+		for(int i = localVertexCount; i < maxLocalId; ++i) {
+			size += remoteVertex[i - localVertexCount].getOutDegree();
+		}
+		return size;
+	}
+
+	public int getLocalId(int globalId) {
+		return gid2lid.get(globalId);
+	}
+	
+	public int getGlobalId(int localId) {
+		if(localId < localVertexCount)
+			return localVertex[localId].getId();
+		else
+			return remoteVertex[localId - localVertexCount].getId();
+	}
+	
+	public BasicVertex getVertex(int localId) {
+		if(localId < localVertexCount)
+			return localVertex[localId];
+		else
+			return remoteVertex[localId - localVertexCount];
+	}
+	
+	public BasicVertex createVertex(int globalId, int label) {
+		gid2lid.put(globalId, maxLocalId);
+		maxLocalId++;
+		int localId = gid2lid.get(globalId);
+		BasicVertex bv = new BasicVertex();
+		bv.initialize(localId, label);
+		if(localId >= (remoteVertex.length + localVertexCount)) {
+			remoteVertex = Arrays.copyOf(remoteVertex, (int)(remoteVertex.length * 1.5));
+		}
+		remoteVertex[localId - localVertexCount] = bv;
+		return bv;
+	}
+	
+	public boolean isLocal(int localId) {
+		return (localId < localVertexCount);
+	}
+
+	public Collection<BasicVertex> getLocalVertex() {
+		return Arrays.asList(this.localVertex);
+	}
+	
+	public Collection<BasicVertex> getAllVertex() {
+		Collection<BasicVertex> res = new ArrayList<BasicVertex>();
+		res.addAll(Arrays.asList(localVertex));
+		res.addAll(Arrays.asList(remoteVertex));
+		return res;
+	}
+	
+	public boolean hasVertex(int globalId) {
+		return (gid2lid.get(globalId) != null);
+	}
+	
+	public boolean isRemoteVertex(int localId) {
+		return (localId >= localVertexCount);
+	}
+
+	@Override
+	public void addMsgEdge(int localId, BasicEdge be) {
+		this.getVertex(localId).addTmpNeighbor(be);
+	}
+
+	@Override
+	public void clearMessage() {
+		for(int i = 0; i < localVertexCount; ++i){
+			localVertex[i].clearTmpeNeighbors();
+		}
+		
+		for(int i = localVertexCount; i < maxLocalId; ++i) {
+			remoteVertex[i - localVertexCount].clearTmpeNeighbors();
+		}
+
+	}
+	
+	public void dump(){
+		StringBuffer sb = new StringBuffer();
+		sb.append("\nLocal vertex Size="+ this.getVertexCount()+"\n");
+		for(BasicVertex rv : this.getLocalVertex()){
+			sb.append("\tLocal: "+rv.toString()+"\n");
+		}
+		sb.append("Remote vertexSize="+(maxLocalId - localVertexCount)+"\n");
+		for(BasicVertex rv : Arrays.asList(remoteVertex)){
+			if(rv == null) break;
+			sb.append("\tRemote: "+rv.toString()+"\n");
+		}
+		LOG.info(sb.toString());
+	}
+	
+	public void printGid2LidMap() {
+		for(int gid : gid2lid.keySet()) {
+			System.out.println(gid+" ==> "+ gid2lid.get(gid));
+		}
+	}
+	
+	public void printStatstics() {
+		System.out.println("local vertex#="+localVertex.length+", "+localVertexCount);
+		System.out.println("remote vertex#="+(maxLocalId - localVertexCount));
+		System.out.println("total edge#="+getTotalEdgeCount());
+	}
+}

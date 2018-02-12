@@ -1,0 +1,406 @@
+package org.apache.giraph.subgraph.graphextraction;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.concurrent.BlockingQueue;
+
+import org.apache.giraph.bsp.CentralizedServiceWorker;
+import org.apache.giraph.comm.messages.MessageStoreByPartition;
+import org.apache.giraph.conf.ImmutableClassesGiraphConfiguration;
+import org.apache.giraph.graph.GraphState;
+import org.apache.giraph.partition.Partition;
+import org.apache.giraph.partition.PartitionStats;
+import org.apache.giraph.plan.EdgeDirection;
+import org.apache.giraph.plan.QueryNode;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.mapreduce.Mapper;
+
+
+/**
+ * configured by ...
+ * 
+ * @author yxshao
+ * @param <V>
+ *
+ */
+public class GraphExtractionWithArrayBasedStore<I,V,E,M> extends GraphExtractionCallable<IntWritable, IntWritable, IntWritable, PartialAggregatedPath> {
+
+	private ArrayList<QueryNode> queries;
+	private long msgCount = 0;
+//	private long sendMsg = 0;
+	
+	/* data structure for cache results during two-hop exploration. */
+//	private HashMap<Integer, Pair> cachedWeights;
+	
+ 	public GraphExtractionWithArrayBasedStore(
+			Mapper<?, ?, ?, ?>.Context context,
+			GraphState<IntWritable, IntWritable, IntWritable, PartialAggregatedPath> graphState,
+			MessageStoreByPartition<IntWritable, PartialAggregatedPath> messageStore,
+			BlockingQueue<Integer> partitionIdQueue,
+			ImmutableClassesGiraphConfiguration<IntWritable, IntWritable, IntWritable, PartialAggregatedPath> configuration,
+			CentralizedServiceWorker<IntWritable, IntWritable, IntWritable, PartialAggregatedPath> serviceWorker) {
+		super(context, graphState, messageStore, partitionIdQueue, configuration,
+				serviceWorker);
+	}
+
+	/**
+	 * supersteps 0 - 2: preprocess graph by materializing incoming edges and vertex labels.
+	 * superstep 2: the superstep 2 also initialize the query which process the lowest level of plan tree.
+	 * follow-up supersteps: finish evaluating the whole plan tree.
+	 */
+	@Override
+	public void computeSuperstep(Partition<IntWritable, IntWritable, IntWritable, PartialAggregatedPath> partition,
+			PartitionStats partitionStats) throws IOException, InterruptedException {
+		BasicGraphStoreInterface localGraph = (BasicGraphStoreInterface) partition;
+		switch((int)graphState.getSuperstep()) {
+			case 0: notifyOutNeighbors(localGraph, partitionStats); break;
+			case 1: updateLocalGraph(localGraph, partitionStats); break;
+			case 2: initializeQuery(localGraph, partitionStats); break;
+			default: executeQuery(localGraph, partitionStats);
+		}
+	}
+	
+	/**
+	 * superstep 0:
+	 * @param localGraph
+	 * @param partitionStats
+	 */
+	public void notifyOutNeighbors(BasicGraphStoreInterface localGraph, PartitionStats partitionStats) {
+		IntWritable stubId = new IntWritable();
+		for (BasicVertex vertex : localGraph.getLocalVertex()) { 
+			PartialAggregatedPath msg = new PartialAggregatedPath();
+			msg.setVid(vertex.getId()); //NOTE: global id is stored in each vertex.
+			msg.setVlabel(vertex.getLabel());
+			for(BasicEdge outEdge : vertex.getOutNeighbors()) {
+				msg.setElabel(outEdge.getLabel());
+				msg.setWeight(outEdge.getWeight());
+				stubId.set(localGraph.getGlobalId(outEdge.getVid())); //NOTE: the edge's target id is local id.
+				if(workerClientRequestProcessor.sendMessageRequest(stubId, msg)) {
+					graphState.getGraphTaskManager().notifySentMessages();
+				}
+			}
+			
+			// Add statistics for this vertex
+	        partitionStats.incrVertexCount();
+	        partitionStats.addEdgeCount(vertex.getOutDegree());
+        }
+	}
+	
+	/**
+	 * superstep 1:
+	 * @param localGraph
+	 * @param partitionStats
+	 * @throws IOException 
+	 */
+	public void updateLocalGraph(BasicGraphStoreInterface localGraph, PartitionStats partitionStats) 
+			throws IOException {
+		IntWritable stubId = new IntWritable();
+		for (BasicVertex vertex : localGraph.getLocalVertex()) {
+			stubId.set(vertex.getId());
+			Iterable<PartialAggregatedPath> messages = messageStore.getVertexMessages(stubId);
+			
+			PartialAggregatedPath newMsg = new PartialAggregatedPath();
+			newMsg.setVid(vertex.getId());
+			newMsg.setVlabel(vertex.getLabel());
+			int vertexLocalId = localGraph.getLocalId(vertex.getId());
+			for(PartialAggregatedPath msg : messages) {
+				if(false == localGraph.hasVertex(msg.getVid())) {
+					localGraph.createVertex(msg.getVid(), msg.getVlabel());
+				}
+				int localId = localGraph.getLocalId(msg.getVid());
+				
+				if(localGraph.isRemoteVertex(localId) == true) {
+					localGraph.getVertex(localId).addOutNeighbor(new BasicEdge(vertexLocalId, msg.getElabel(), msg.getWeight()));
+					localGraph.getVertex(localId).setLabel(msg.getVlabel());
+				}
+				vertex.addInNeighbor(new BasicEdge(localId, msg.getElabel(), msg.getWeight()));
+				
+				newMsg.setElabel(msg.getElabel());
+				newMsg.setWeight(msg.getWeight());
+				if(workerClientRequestProcessor.sendMessageRequest(new IntWritable(msg.getVid()), newMsg)) { //TODO: do not send message if it is local.
+					graphState.getGraphTaskManager().notifySentMessages();
+				}
+			}
+			
+			messageStore.clearVertexMessages(stubId);
+			// Add statistics for this vertex
+	        partitionStats.incrVertexCount();
+	        partitionStats.addEdgeCount(vertex.getOutDegree());
+		}
+		
+	}
+	
+	/**
+	 * superstep 2:
+	 * @param localGraph
+	 * @param partitionStats
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
+	public void initializeQuery(BasicGraphStoreInterface localGraph,
+				PartitionStats partitionStats) throws IOException, InterruptedException {
+		IntWritable stubId = new IntWritable();
+		for (BasicVertex vertex : localGraph.getLocalVertex()) { //TODO:
+			stubId.set(vertex.getId());
+			Iterable<PartialAggregatedPath> messages = messageStore.getVertexMessages(stubId);
+			int vertexLocalId = localGraph.getLocalId(vertex.getId());
+			for(PartialAggregatedPath msg : messages) {
+				int localId = localGraph.getLocalId(msg.getVid()); //The vertex has been created in the initialGraphStore method.
+				if(localGraph.isRemoteVertex(localId) == true) {
+					localGraph.getVertex(localId).setLabel(msg.getVlabel());
+					localGraph.getVertex(localId).addInNeighbor(new BasicEdge(vertexLocalId, msg.getElabel(), msg.getWeight()));
+				}
+			}
+	        
+	        // Remove the messages now that the vertex has finished computation
+	        messageStore.clearVertexMessages(stubId);
+	        // Add statistics for this vertex
+	        partitionStats.incrVertexCount();
+	        partitionStats.addEdgeCount(vertex.getOutDegree());
+        }
+		
+		int vcount = 0;
+		/* initialize the query */
+		//scan over all the vertex and execute the 2-hop exploration;
+		//all the vertex are treated as starting vertex
+		for(BasicVertex vertex : localGraph.getAllVertex()) {
+			if(vertex == null) break;
+			vcount++;
+			twoHopExploration(localGraph, vertex);
+		}
+	}
+	
+	public void executeQuery(BasicGraphStoreInterface localGraph,
+			PartitionStats partitionStats) throws IOException,
+			InterruptedException {
+
+		queries = graphState.getGraphTaskManager().getQueries();
+		if(queries == null) {
+			LOG.info("call saveExtractedGraph method in executeQuery.");
+			saveExtractedGraph(localGraph, partitionStats);
+			return;
+		}
+		
+		long startTime = System.currentTimeMillis();
+		
+		/* 1. scan over the local messages to update the local storage */
+		IntWritable stubId = new IntWritable();
+		HashSet<Integer> startVertexLocalId = new HashSet<Integer>();
+		for (BasicVertex vertex : localGraph.getLocalVertex()) {
+			stubId.set(vertex.getId());
+			Iterable<PartialAggregatedPath> messages = messageStore.getVertexMessages(stubId);
+			for(PartialAggregatedPath msg : messages) {
+    		  processMessage(startVertexLocalId, msg, localGraph);
+			}
+			// Remove the messages now that the vertex has finished computation
+			messageStore.clearVertexMessages(stubId);
+		}
+		LOG.info("After processing incoming messages.");
+		localGraph.printStatstics();
+		long midTime = System.currentTimeMillis();
+		/* 2. query on the updated local storage through two-hop neighbor exploration 
+		 * 	and generate new messages */
+		msgCount = 0;
+		for(int vertexId : startVertexLocalId) {
+			twoHopExploration(localGraph, localGraph.getVertex(vertexId));
+		}
+		long endTime = System.currentTimeMillis();
+		System.out.println("Total Messages need to be sent: "+msgCount+" startVertexSize="+startVertexLocalId.size()+" preprocessTime="+(midTime - startTime)+" executeTime="+(endTime-midTime));
+		/* 3. clear messages. */
+		localGraph.clearMessage();
+	}
+
+	private void saveExtractedGraph(BasicGraphStoreInterface localGraph,
+			PartitionStats partitionStats) throws IOException {
+		IntWritable stubId = new IntWritable();
+		HashMap<Integer, Integer> cleanEdges = new HashMap<Integer, Integer>();
+		for (BasicVertex vertex : localGraph.getLocalVertex()) {
+			stubId.set(vertex.getId());
+			Iterable<PartialAggregatedPath> messages = messageStore.getVertexMessages(stubId);
+//			cleanEdges.clear();
+			for(PartialAggregatedPath msg : messages) {
+//				vertex.addTmpNeighbor(msg.getTid(), msg.getWeight());
+				int nid = msg.getTid();
+				Integer curWeight = cleanEdges.get(nid);
+				if(curWeight == null) {
+					curWeight = 0;
+				}
+				curWeight += msg.getWeight(); //aggregation - II;
+				cleanEdges.put(nid, curWeight); //TODO: here the root query is Right query, so the messages are grouped by sid.
+			}
+			
+			for(int sourceId : cleanEdges.keySet()) {
+				BasicEdge be = new BasicEdge();
+				be.setVid(sourceId);
+				be.setWeight(cleanEdges.get(sourceId));
+				vertex.addTmpNeighbor(be);
+			}
+			
+			// Remove the messages now that the vertex has finished computation
+			messageStore.clearVertexMessages(stubId);
+		}	
+	}
+
+	/**
+	 * start two-hop exploration for a certain vertex.
+	 */
+	private void twoHopExploration(BasicGraphStoreInterface localGraph, BasicVertex startVertex) {
+		queries = graphState.getGraphTaskManager().getQueries();
+		/* NOTE: if left (right) queryId = -1 in query node, 
+		 * it means an empty left (right) query. 
+		 */
+		for(QueryNode qn : queries) {
+			if(qn.isLeafNode()) {
+				leafNodeQuery(qn, localGraph, startVertex);
+			}
+			else {
+				midNodeQuery(qn, localGraph, startVertex);
+			}
+		}
+	}
+	
+	private void leafNodeQuery(QueryNode query, BasicGraphStoreInterface localGraph, BasicVertex startVertex) {
+		/* TODO: make sure the left is non-empty in the query node. */
+		if(query.getLeftLabel() == startVertex.getLabel()) {
+			/* NOTE: in the query node, the edge direction is determined against the middle vertex. 
+			 * here the startVertex is left-end vertex, not the middle vertex. */
+			EdgeDirection ed = EdgeDirection.BOTH;
+			if(query.getLeftEdgeDirection() == EdgeDirection.INCOMING)
+				ed = EdgeDirection.OUTGOING;
+			if(query.getLeftEdgeDirection() == EdgeDirection.OUTGOING)
+				ed = EdgeDirection.INCOMING;
+			ArrayList<BasicEdge> firstNbrs = getMatchedEdge(localGraph, startVertex, query.getNodeLabel(), ed, query.getLeftEdgeLabel());
+			HashMap<Integer, Integer> aggWeights = new HashMap<Integer, Integer>();
+			int count = 0;
+			if(query.getRightLabel() == -1) {
+				for(BasicEdge be : firstNbrs) {
+					aggWeights.put(be.getVid(), be.getWeight());
+					count++;
+				}
+			} else {
+				for(BasicEdge be : firstNbrs) {
+					BasicVertex bv = localGraph.getVertex(be.getVid());
+					ArrayList<BasicEdge> secondNbrs = getMatchedEdge(localGraph, bv, query.getRightLabel(), query.getRightEdgeDirection(), query.getRightEdgeLabel());
+					for(BasicEdge edge : secondNbrs) {
+						//save vertex edge.getVid;
+						Integer curVal = aggWeights.get(edge.getVid());
+						if(curVal == null) {
+							curVal = 0;
+						}
+						//aggregate-I $otimes$
+						int deleta = be.getWeight() * edge.getWeight();
+						//aggregate-II $oplus$
+						curVal += deleta;
+						aggWeights.put(edge.getVid(), curVal);
+						count++;
+					}
+				}
+			}
+//			System.out.println("qid = "+query.getNodeId()+" count="+count +" startVertexId="+startVertex.toString());
+			/* send messages */
+
+			for(int vid : aggWeights.keySet()) {
+				int gid = localGraph.getGlobalId(vid);
+				IntWritable targetId = new IntWritable(query.isLeftQuery() == true ? gid : startVertex.getId());
+				PartialAggregatedPath msg = new PartialAggregatedPath();
+				msg.setQid(query.getNodeId());
+				msg.setWeight(aggWeights.get(vid));
+				msg.setSid(startVertex.getId());
+				msg.setTid(gid);
+				this.workerClientRequestProcessor.sendMessageRequest(targetId, msg);
+			}
+		}
+	}
+	
+	private void midNodeQuery(QueryNode query, BasicGraphStoreInterface localGraph, BasicVertex startVertex) {
+		ArrayList<Integer> reachedVertex = new ArrayList<Integer>();
+		int startLocalId = localGraph.getLocalId(startVertex.getId());
+
+		for(BasicEdge be : startVertex.getTmpNeighbors()) {
+			if(be.getLabel() == query.getLeftEdgeLabel()) {
+				BasicVertex midVertex = localGraph.getVertex(be.getVid()); 
+				if(midVertex.getLabel() == query.getNodeLabel()) {
+					for(BasicEdge edge : midVertex.getTmpNeighbors()) { //here can also be a leaf query.
+						if(edge.getLabel() == query.getRightQueryId()) {
+//							//aggregate-I $otimes$
+							int deleta = be.getWeight() * edge.getWeight();
+							
+							/* one hour 2 min*/
+							BasicVertex endBv = localGraph.getVertex(edge.getVid());
+							if(endBv.getSid() != startLocalId) {
+								reachedVertex.add(edge.getVid());
+								endBv.setSid(startLocalId);
+								endBv.setWeight(deleta);
+							}
+							else {
+								endBv.setWeight(endBv.getWeight() + deleta);
+							}
+						}
+					}
+				}
+			}
+		}
+		/* send messages */
+		/*42 min*/
+		for(int vid : reachedVertex) {
+			int gid = localGraph.getGlobalId(vid);
+			IntWritable targetId = new IntWritable(query.isLeftQuery() == true ? gid : startVertex.getId());
+			PartialAggregatedPath msg = new PartialAggregatedPath();
+			msg.setQid(query.getNodeId());
+			msg.setWeight(localGraph.getVertex(vid).getWeight()); // 42 min.
+			msg.setSid(startVertex.getId());
+			msg.setTid(gid);
+			msgCount++;
+			this.workerClientRequestProcessor.sendMessageRequest(targetId, msg);
+		}
+	}
+
+	private ArrayList<BasicEdge> getMatchedEdge(BasicGraphStoreInterface localGraph, BasicVertex vertex,
+			int nodeLabel, EdgeDirection edgeDirection, int edgeLabel) {
+		ArrayList<BasicEdge> res = new ArrayList<BasicEdge>();
+		if(edgeDirection == EdgeDirection.INCOMING || edgeDirection == EdgeDirection.BOTH) {
+			for(BasicEdge be : vertex.getInNeighbors()) {
+				if((localGraph.getVertex(be.getVid()) != null && localGraph.getVertex(be.getVid()).getLabel() == nodeLabel) && be.getLabel() == edgeLabel) {
+					res.add(be);
+				}
+			}
+		}
+
+		if(edgeDirection == EdgeDirection.OUTGOING || edgeDirection == EdgeDirection.BOTH) {
+			for(BasicEdge be : vertex.getOutNeighbors()) {
+				if((localGraph.getVertex(be.getVid()) != null && localGraph.getVertex(be.getVid()).getLabel() == nodeLabel) && be.getLabel() == edgeLabel) {
+					res.add(be);
+				}
+			}
+		}
+		return res;
+	}
+
+	/**
+	 * attach messages to the correspond vertices 
+	 * for preparing the two-hop neighbor exploration.
+	 * @param msg
+	 * @param localGraph
+	 */
+	private void processMessage(HashSet<Integer> startVertexId, PartialAggregatedPath msg,
+			BasicGraphStoreInterface localGraph) {
+		if(localGraph.hasVertex(msg.getSid()) == false) {
+			localGraph.createVertex(msg.getSid(), -1); //temporal vertex, will be cleaned later.
+		}
+		
+		if(localGraph.hasVertex(msg.getTid()) == false) {
+			localGraph.createVertex(msg.getTid(), -1); //temporal vertex, will be cleaned later.
+		}
+
+		BasicEdge be = new BasicEdge();
+		be.initialize(localGraph.getLocalId(msg.getTid()), msg.getQid(), msg.getWeight());
+		int vid = localGraph.getLocalId(msg.getSid());
+		if(graphState.getGraphTaskManager().isLeftQuery(msg.getQid()) == true) {
+			startVertexId.add(vid);
+		}
+		localGraph.addMsgEdge(vid, be);
+	}
+	
+}

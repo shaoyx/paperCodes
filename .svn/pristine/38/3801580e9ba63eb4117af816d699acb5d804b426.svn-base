@@ -1,0 +1,21 @@
+package org.apache.giraph.tools.graphanalytics.relextractor;
+
+import org.apache.giraph.aggregators.LongSumAggregator;
+import org.apache.giraph.master.DefaultMasterCompute;
+import org.apache.hadoop.io.LongWritable;
+
+public class MasterAggregation extends DefaultMasterCompute {
+
+    @Override
+    public void compute() {
+		LongWritable globalMsgcount = ((LongWritable)getAggregatedValue("ge.global.messages.count"));
+		System.out.println("step="+this.getSuperstep()+": "+globalMsgcount);
+    }
+
+    @Override
+    public void initialize() throws InstantiationException,
+        IllegalAccessException {
+    	registerAggregator("ge.global.messages.count", LongSumAggregator.class);
+    }
+    
+}

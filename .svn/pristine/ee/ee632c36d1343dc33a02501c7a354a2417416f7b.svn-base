@@ -1,0 +1,156 @@
+package org.apache.giraph.plan;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+
+public class QueryPlan {
+	
+	ArrayList<QueryNode> queryNodes;
+	
+	/* auxiliary data structure. */
+	HashMap<Integer, QueryNode> qid2Parent;
+	HashMap<Integer, ArrayList<QueryNode>> queriesByLevel;
+	HashMap<Integer, QueryNode> id2Query;
+	int maxLevel;
+	
+	
+	public QueryPlan() { 
+		queryNodes = new ArrayList<QueryNode> ();
+	}
+	
+	public void createMinQuery(int level, ArrayList<RawQueryNode> qnList, int startIdx, int endIdx, boolean isLeftQuery) {
+		generateTreePlan(level, qnList, startIdx, endIdx, isLeftQuery);
+	}
+	
+	private int generateTreePlan(int level, ArrayList<RawQueryNode> qnList, int startIdx, int endIdx, boolean isLeftQuery) {
+		int midIdx = (endIdx + startIdx) >> 1;
+  	  	int vLabel = qnList.get(midIdx).getVlabel();
+  	  	QueryNode qn = new QueryNode();
+		
+  	  	if(endIdx - startIdx < 3) {
+  	  		int leftLabel = (startIdx == midIdx) ? -1 : qnList.get(startIdx).getVlabel();
+  	  		int rightLabel = (endIdx == midIdx) ? -1 : qnList.get(endIdx).getVlabel();
+  	  		EdgeDirection leftEd = (startIdx == midIdx) ? EdgeDirection.UNSET : qnList.get(startIdx).getEdgeDirection();
+  	  		EdgeDirection rightEd = (endIdx == midIdx) ? EdgeDirection.UNSET : qnList.get(midIdx).getEdgeDirection();// Assume the input query is a line.
+  	  		if(leftEd == EdgeDirection.OUTGOING) {
+  	  			leftEd = EdgeDirection.INCOMING;
+  	  		}
+  	  		else if(leftEd == EdgeDirection.INCOMING) {
+  	  			leftEd = EdgeDirection.OUTGOING;
+  	  		}
+  	  		int leftEdgeLabel = (startIdx == midIdx) ? -1 : qnList.get(startIdx).getElabel();
+  	  		int rightEdgeLabel = (endIdx == midIdx) ? -1 : qnList.get(midIdx).getElabel(); // Assume the input query is a line.
+		  
+  	  		qn.setLeafNode();
+  	  		qn.setNodeLabel(vLabel);
+  	  		qn.setLeftLabel(leftLabel);
+  	  		qn.setRightLabel(rightLabel);
+  	  		qn.setLeftEdgeDirection(leftEd);
+  	  		qn.setLeftEdgeLabel(leftEdgeLabel);
+  	  		qn.setRightEdgeDirection(rightEd);
+  	  		qn.setRightEdgeLabel(rightEdgeLabel);
+  	  		qn.setLevel(level);
+  	  		qn.setLeftQuery(isLeftQuery);
+		  
+  	  		this.add(qn);
+  	  		return qn.getNodeId();
+  	  	}
+	  
+  	  	int leftQueryId = generateTreePlan(level + 1, qnList, startIdx, midIdx, true);
+  	  	int rightQueryId = generateTreePlan(level + 1, qnList, midIdx, endIdx, false);
+  	  	qn.setNodeLabel(vLabel);
+  	  	qn.setLeftQueryId(leftQueryId);
+  	  	qn.setRightQueryId(rightQueryId);
+  	  	qn.setLevel(level);
+  	  	qn.setLeftQuery(isLeftQuery);
+	 
+  	  	this.add(qn); // determine the ID in the add() method.
+	  
+  	  	return qn.getNodeId();
+	}
+
+	/**
+	 * must be called before quering the plan.
+	 */
+	public void initialize() {		
+		qid2Parent = new HashMap<Integer, QueryNode>();
+		queriesByLevel = new HashMap<Integer, ArrayList<QueryNode>> ();
+		id2Query = new HashMap<Integer, QueryNode>();
+		maxLevel = -1;
+		for(QueryNode qn : queryNodes) {
+			if(qn.isLeafNode() == false) {
+				qid2Parent.put(qn.getLeftQueryId(), qn);
+				qid2Parent.put(qn.getRightQueryId(), qn);
+			}
+			id2Query.put(qn.getNodeId(), qn);
+			maxLevel = (maxLevel > qn.getLevel() ? maxLevel : qn.getLevel());
+			ArrayList<QueryNode> qList = queriesByLevel.get(qn.getLevel());
+			if(qList == null)
+				qList = new ArrayList<QueryNode>();
+			qList.add(qn);
+			queriesByLevel.put(qn.getLevel(), qList);
+		}
+	}
+	
+	public void add(QueryNode qn) {
+		qn.setNodeId(queryNodes.size());
+		queryNodes.add(qn);
+	}
+
+	public void write(DataOutputStream out) throws IOException {
+		int size = queryNodes.size();
+		out.writeInt(size);
+		for(QueryNode qn : queryNodes) {
+			qn.write(out);
+		}
+	}
+	
+	public void readFields(DataInputStream in) throws IOException {
+		int size = in.readInt();
+		if(queryNodes == null) {
+			queryNodes = new ArrayList<QueryNode> ();
+		}
+		else {
+			queryNodes.clear();
+		}
+		for(int i = 0; i < size; i++) {
+			QueryNode qn = new QueryNode();
+			qn.readFields(in);
+			queryNodes.add(qn);
+		}
+		this.initialize();
+	}
+	
+	public String toString() {
+		StringBuffer res = new StringBuffer();
+		res.append("\nQuery plan size: "+ queryNodes.size());
+		for(QueryNode qn : queryNodes) {
+			res.append("\n\t"+qn.toString());
+		}
+		return res.toString();
+	}
+
+	/**
+	 * bottom-up fashion: the larger level is, the lower position is.
+	 * @param superstep
+	 * @return
+	 */
+	public ArrayList<QueryNode> getQueryByLevel(long superstep) {
+		int curLevel = (int)(maxLevel - superstep);
+		return queriesByLevel.get(curLevel);
+	}
+	
+	public QueryNode getQueryNodeByChild(int qid) {
+		return this.qid2Parent.get(qid);
+	}
+	
+	public boolean isLeftQuery(int qid) {
+		return id2Query.get(qid).isLeftQuery();
+	}
+	
+}

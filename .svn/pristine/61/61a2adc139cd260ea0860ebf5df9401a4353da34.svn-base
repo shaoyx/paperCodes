@@ -1,0 +1,25 @@
+package org.apache.giraph.tools.graphanalytics.relextractor;
+
+import org.apache.giraph.aggregators.LongSumAggregator;
+import org.apache.giraph.master.DefaultMasterCompute;
+import org.apache.hadoop.io.LongWritable;
+
+public class MasterAggregation extends DefaultMasterCompute {
+
+    @Override
+    public void compute() {
+		LongWritable globalMsgcount = ((LongWritable)getAggregatedValue("ge.global.messages.count"));
+		LongWritable apEdge = ((LongWritable)getAggregatedValue("ge.global.edge.ap.count"));
+		LongWritable pvEdge = ((LongWritable)getAggregatedValue("ge.global.edge.pv.count"));
+		System.out.println("step="+this.getSuperstep()+": "+globalMsgcount+" ap="+apEdge+" pv="+pvEdge);
+    }
+
+    @Override
+    public void initialize() throws InstantiationException,
+        IllegalAccessException {
+    	registerAggregator("ge.global.messages.count", LongSumAggregator.class);
+    	registerAggregator("ge.global.edge.ap.count", LongSumAggregator.class);
+    	registerAggregator("ge.global.edge.pv.count", LongSumAggregator.class);
+    }
+    
+}

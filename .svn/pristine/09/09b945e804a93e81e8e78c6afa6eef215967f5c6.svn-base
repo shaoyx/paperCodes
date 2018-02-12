@@ -1,0 +1,169 @@
+package org.apache.giraph.subgraph.graphextraction;
+
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+
+import org.apache.hadoop.io.WritableComparable;
+
+/**
+ * a partial path
+ * @author yxshao
+ *
+ */
+public class PartialPath implements WritableComparable<PartialPath> {
+
+	private int maxLen;
+	private int curLen;
+	private int sid;
+	private int [] vid;
+	private int [] wgt;
+	private int qid;
+	
+	public PartialPath() { 
+		curLen = 0;
+		maxLen = 0;
+	}
+	
+	public PartialPath(int maxLen) {
+		this.maxLen = maxLen;
+		vid = new int[maxLen];
+		wgt = new int[maxLen];
+		curLen = 0;
+	}
+	
+	public void merge(PartialPath pp) {
+		System.out.println("Before: this curLen="+curLen +" other curLen="+pp.curLen);
+		for(int i = pp.curLen - 1; i > 0; i--, curLen++) {
+			vid[curLen] = pp.vid[i-1];
+			wgt[curLen] = pp.wgt[i];
+		}
+		vid[curLen] = sid;
+		wgt[curLen] = pp.wgt[0];
+		curLen++;
+		System.out.println("After: this curLen="+curLen +" other curLen="+pp.curLen);
+	}
+	
+	public void copy(PartialPath pp) {
+		curLen = 0;
+		maxLen = pp.maxLen;
+		qid = pp.qid;
+		this.merge(pp);
+	}
+	
+	public int getMaxLen() {
+		return maxLen;
+	}
+	
+	public void setMaxLen(int maxLen) {
+		this.maxLen = maxLen;
+	}
+	
+	public int getCurLen() {
+		return curLen;
+	}
+	
+	public void setCurLen(int curLen) {
+		this.curLen = curLen;
+	}
+	
+	public int[] getWeights() {
+		return this.wgt;
+	}
+	
+	/* API for preprocessing */
+	public int getVid() {
+		return vid[0];
+	}
+	
+	public void setVid(int vid) {
+		this.vid[0] = vid;
+		curLen = 2; /**/
+	}
+	
+	public int getVlabel() {
+		return vid[1];
+	}
+	
+	public void setVlabel(int vlabel) {
+		this.vid[1] = vlabel;
+	}
+	
+	public int getElabel() {
+		return qid;
+	}
+	
+	public void setElabel(int elabel) {
+		this.qid = elabel;
+	}
+	
+	public int getWeight() {
+		return wgt[0];
+	}
+	
+	public void setWeight(int weight) {
+		this.wgt[0] = weight;
+	}
+	
+	/* API for path enumeration. */
+	public int getSid() {
+		return sid;
+	}
+	
+	public void setSid(int sid) {
+		this.sid = sid;
+	}
+	
+	public int getTid() {
+		return this.vid[curLen-1];
+	}
+	
+	public void setTid(int tid) {
+		this.vid[curLen] = tid;
+	}
+	
+	public int getQid() {
+		return qid;
+	}
+	
+	public void setQid(int qid) {
+		this.qid = qid;
+	}
+	
+	public void addProperty(int vid, int weight) {
+		this.vid[curLen] = vid;
+		this.wgt[curLen] = weight;
+		curLen++;
+	}
+	
+	@Override
+	public void readFields(DataInput in) throws IOException {
+		maxLen = in.readInt();
+		curLen = in.readInt();
+		sid = in.readInt();
+		qid = in.readInt();
+		vid = new int[maxLen];
+		wgt = new int[maxLen];
+		for(int i = 0; i < curLen; i++) {
+			vid[i] = in.readInt();
+			wgt[i] = in.readInt();
+ 		}
+	}
+
+	@Override
+	public void write(DataOutput out) throws IOException {
+		out.writeInt(maxLen);
+		out.writeInt(curLen);
+		out.writeInt(sid);
+		out.writeInt(qid);
+		for(int i = 0; i < curLen; i++) {
+			out.writeInt(vid[i]);
+			out.writeInt(wgt[i]);
+		}
+	}
+
+	@Override
+	public int compareTo(PartialPath o) {
+		return 0;
+	}
+}

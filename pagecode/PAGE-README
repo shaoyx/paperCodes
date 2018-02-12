@@ -1,0 +1,11 @@
+The protype of PAGE is run on hadoop-0.20.203.
+
+The script "test-tool.sh" is used to run the examples. But some paths should be updated according to your own environment.
+
+Set up:
+1. use the script "compile" located at PAGE_Monitor directory to complie the code;
+2. move the script “test-tool.sh” to the PAGE_Monitor/giraph.examples/target
+3. use the *.jar which is located at PAGE_Monitor/giraph-examples/target to run the example algorithms
+4. In the "test-tool.sh" script, -e optition is to select the engine. The page engine is specified with -e pageiwthqueue; the dynamic feature is specified with -d option. More details can be found in the test-tool.sh
+
+

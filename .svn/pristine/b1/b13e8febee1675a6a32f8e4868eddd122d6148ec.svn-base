@@ -1,0 +1,187 @@
+package org.apache.giraph.plan;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+
+public class QueryNode {
+	private int nodeId;
+	private boolean isLeft;
+	private int leftQueryId; //leftLabel if node is leaf
+	private int rightQueryId; //rightLabel if node is leaf.
+	private int nodeLabel;
+
+	private boolean isLeaf;
+	private EdgeDirection leftEdgeDirection; //used for leaf node
+	private int leftEdgeLabel;
+	private EdgeDirection rightEdgeDirection; //used for leaf node
+	private int rightEdgeLabel;
+	
+	private int level;
+	
+	public QueryNode() { }
+	
+	public boolean isLeftQuery() {
+		return isLeft;
+	}
+	
+	public void setLeftQuery(boolean isLeftQuery) {
+		this.isLeft = isLeftQuery;
+	}
+	
+	public int getLevel() {
+		return level;
+	}
+	
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	
+	public EdgeDirection getLeftEdgeDirection() {
+		return leftEdgeDirection;
+	}
+	
+	public void setLeftEdgeDirection(EdgeDirection dir) {
+		leftEdgeDirection = dir;
+	}
+	
+	public EdgeDirection getRightEdgeDirection() {
+		return rightEdgeDirection;
+	}
+	
+	public void setRightEdgeDirection(EdgeDirection dir) {
+		rightEdgeDirection = dir;
+	}
+	
+	public int getLeftEdgeLabel() {
+		return leftEdgeLabel;
+	}
+	
+	public void setLeftEdgeLabel(int label) {
+		leftEdgeLabel = label;
+	}
+	
+	public int getRightEdgeLabel() {
+		return rightEdgeLabel;
+	}
+	
+	public void setRightEdgeLabel(int label) {
+		rightEdgeLabel = label;
+	}
+	
+	public boolean isLeafNode() {
+		return isLeaf;
+	}
+	
+	public void setLeafNode() {
+		isLeaf = true;
+	}
+	
+	public int getNodeId() {
+		return nodeId;
+	}
+	
+	public void setNodeId(int vid) {
+		nodeId = vid;
+	}
+	
+	public int getLeftLabel() {
+		return leftQueryId;
+	}
+	
+	public void setLeftLabel(int label) {
+		leftQueryId = label;
+	}
+	
+	public int getRightLabel() {
+		return rightQueryId;
+	}
+	
+	public void setRightLabel(int label) {
+		rightQueryId = label;
+	}
+	
+	public int getLeftQueryId() {
+		return leftQueryId;
+	}
+	
+	public void setLeftQueryId(int qid) {
+		leftQueryId = qid;
+	}
+	
+	public void setRightQueryId(int qid) {
+		rightQueryId = qid;
+	}
+	public int getRightQueryId() {
+		return rightQueryId;
+	}
+	
+	public int getNodeLabel() {
+		return nodeLabel;
+	}
+	
+	public void setNodeLabel(int label) {
+		nodeLabel = label;
+	}
+	
+	public boolean equals(QueryNode qn) {
+		boolean partialRes = (qn.leftQueryId == leftQueryId && 
+				qn.rightQueryId == rightQueryId &&
+				qn.nodeLabel == nodeLabel);
+		if(isLeaf == false) {
+			return partialRes;
+		}
+		return (qn.leftEdgeDirection == leftEdgeDirection &&
+				qn.rightEdgeDirection == rightEdgeDirection &&
+				partialRes
+				);
+	}
+	
+	public boolean hasSameLabel(QueryNode qn) {
+		return qn.nodeLabel == nodeLabel;
+	}
+
+	public void write(DataOutputStream out) throws IOException {
+		out.writeInt(nodeId);
+		out.writeInt(nodeLabel);
+		out.writeInt(leftQueryId);
+		out.writeInt(rightQueryId);
+		out.writeInt(level);
+		out.writeBoolean(isLeft);
+		out.writeBoolean(isLeaf);
+		if(isLeaf) {
+			out.writeInt(leftEdgeDirection.ordinal());
+			out.writeInt(leftEdgeLabel);
+			out.writeInt(rightEdgeDirection.ordinal());
+			out.writeInt(rightEdgeLabel);
+		}
+	}
+	
+	public void readFields(DataInputStream in) throws IOException {
+		nodeId = in.readInt();
+		nodeLabel = in.readInt();
+		leftQueryId = in.readInt();
+		rightQueryId = in.readInt();
+		level = in.readInt();
+		isLeft = in.readBoolean();
+		isLeaf = in.readBoolean();
+		if(isLeaf) {
+			leftEdgeDirection = EdgeDirection.values()[in.readInt()];
+			leftEdgeLabel = in.readInt();
+			rightEdgeDirection = EdgeDirection.values()[in.readInt()];
+			rightEdgeLabel = in.readInt();
+		}
+	}
+	
+	public String toString() {
+		StringBuilder res = new StringBuilder();
+		res.append("{ vid="+nodeId+"; vlabel="+nodeLabel+"; leftQueryId="+leftQueryId+"; rightQueryId="
+				+rightQueryId+"; level="+level+"; isLeftQuery="+isLeft+"; isLeaf="+(isLeaf ? "true" : "false"));
+		if(isLeaf) {
+			res.append("; leftEdge=("+leftEdgeDirection+","+leftEdgeLabel+")");
+			res.append("; rightEdge=("+rightEdgeDirection+","+rightEdgeLabel+")");
+		}
+		res.append(" }");
+		return res.toString();
+	}
+}

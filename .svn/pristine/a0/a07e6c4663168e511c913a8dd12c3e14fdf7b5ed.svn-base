@@ -1,0 +1,83 @@
+package org.apache.giraph.tools.graphanalytics.relextractor;
+
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+
+import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.io.WritableComparable;
+
+public class PackagedNeighborInfo <D extends Writable> implements WritableComparable<PackagedNeighborInfo> {
+
+	int vid;
+	int nlabel;
+	int elabel;
+	D weight;
+	
+	public PackagedNeighborInfo() {}
+	
+	public int getVid() {
+		return vid;
+	}
+	
+	public void setVid(int vid) {
+		this.vid = vid;
+	}
+	
+	public int getVlabel() {
+		return nlabel;
+	}
+	
+	public void setVlabel(int vlabel) {
+		nlabel = vlabel;
+	}
+	
+	public int getElabel() {
+		return elabel;
+	}
+	
+	public void setElabel(int elabel) {
+		this.elabel = elabel;
+	}
+	
+	public D getWeight() {
+		return weight;
+	}
+	
+	public void setWeight(D weight) {
+		this.weight = weight;
+	}
+	
+	@Override
+	public void readFields(DataInput in) throws IOException {
+		vid = in.readInt();
+		nlabel = in.readInt();
+		elabel = in.readInt();
+		weight.readFields(in);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void write(DataOutput out) throws IOException {
+		out.writeInt(vid);
+		out.writeInt(nlabel);
+		out.writeInt(elabel);
+		try {
+			weight  = (D) this.getClass().getTypeParameters()[0].getClass().newInstance();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		weight.write(out);
+	}
+
+	@Override
+	public int compareTo(PackagedNeighborInfo o) {
+		return 0;
+	}
+
+
+}

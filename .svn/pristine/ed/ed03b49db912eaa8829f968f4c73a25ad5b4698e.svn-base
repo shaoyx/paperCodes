@@ -1,0 +1,144 @@
+package org.apache.giraph.subgraph.graphextraction;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+
+/**
+ * The vertex stores its own neighborhood
+ * @author simon0227
+ *
+ */
+public class BasicVertex {
+	
+	private int id; //global id
+	private int label;
+	private HashMap<Integer, BasicEdge> outNeighbors; //each edge's target vertex id is local id.
+	private HashMap<Integer, BasicEdge> inNeighbors;
+	
+//	private ArrayList<BasicEdge> tmpNeighborStore; // a key data structure.
+	private HashMap<Integer, BasicEdge> tmpNeighborStore;
+	
+	private int sid;
+	private int weight;
+	
+	public BasicVertex() { }
+	
+	public void initialize(int id, int label){
+		this.id = id;
+		this.label = label;
+		outNeighbors = new HashMap<Integer, BasicEdge>();
+		inNeighbors = new HashMap<Integer, BasicEdge>();
+//		tmpNeighborStore = new ArrayList<BasicEdge>();
+		tmpNeighborStore = new HashMap<Integer, BasicEdge>();
+		sid = -1;
+		weight = 0;
+	}
+	
+	public int getSid() {
+		return sid;
+	}
+	
+	public int getWeight() {
+		return weight;
+	}
+	
+	public void setSid(int sid) {
+		this.sid = sid;
+	}
+	
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public int getLabel() {
+		return label;
+	}
+	
+	public void setLabel(int label) {
+		this.label = label;
+	}
+	
+	public void addOutNeighbor(BasicEdge newEdge) {
+		BasicEdge oldBe = outNeighbors.get(newEdge.getVid());
+		if(oldBe != null) {
+			System.err.println("Changed the existed out-edge. vid="+id+" old="+oldBe.toString()+" new="+newEdge.toString());
+		}
+		outNeighbors.put(newEdge.getVid(), newEdge);
+	}
+	
+	public void addInNeighbor(BasicEdge newEdge) {
+		if(inNeighbors.put(newEdge.getVid(), newEdge) != null) {
+			System.err.println("Changed the existed in-edge.");
+		}
+	}
+	
+	public void addTmpNeighbor(BasicEdge edge) {
+		BasicEdge old = tmpNeighborStore.get(edge.getVid());
+		if(old == null) {
+			tmpNeighborStore.put(edge.getVid(), edge);
+		}
+		else {
+			old.setWeight(old.getWeight() * edge.getWeight()); //TODO: aggregated -I
+			tmpNeighborStore.put(edge.getVid(), old); //replace the old one
+		}
+	}
+	
+	public void clearTmpeNeighbors() {
+		tmpNeighborStore.clear();
+	}
+	
+	public Collection<BasicEdge> getOutNeighbors(){
+		return outNeighbors.values();
+	}
+	
+	public Collection<BasicEdge> getInNeighbors() {
+		return inNeighbors.values();
+	}
+	
+	public Collection<BasicEdge> getTmpNeighbors() {
+		return tmpNeighborStore.values();
+	}
+	
+	public int getOutDegree(){
+		return outNeighbors.size();
+	}
+	
+	public int getInDegree() {
+		return inNeighbors.size();
+	}
+	
+	public boolean containNeighbor(int vid){
+		return outNeighbors.containsKey(vid);
+	}
+	
+	public boolean containNeighbor(BasicEdge ne){
+		return outNeighbors.containsValue(ne);
+	}
+	
+	public void removeEdge(int targetId) {
+		outNeighbors.remove(targetId);
+	}
+
+	public String toString(){
+		String res = "vid="+id+" label="+this.getLabel()+"\n\toutNbrSize="+outNeighbors.size()+" outNbrList=(";
+		for(BasicEdge vid : outNeighbors.values()){
+			res += " id="+vid.getVid()+", w="+vid.getWeight()+", l="+vid.getLabel();
+		}
+		res += ")\n\tinNbrSize="+inNeighbors.size()+" inNBrList=(";
+		for(BasicEdge vid : inNeighbors.values()){
+			res += " id="+vid.getVid()+", w="+vid.getWeight()+", l="+vid.getLabel();
+		}
+		res +=")\n\ttmpNbrSize="+tmpNeighborStore.size()+" tmpNbrList=(";
+		for(BasicEdge vid : tmpNeighborStore.values()){
+			res += " id="+vid.getVid()+", w="+vid.getWeight()+", l="+vid.getLabel();
+		}
+		res += ")";
+		return res;
+	}
+
+}

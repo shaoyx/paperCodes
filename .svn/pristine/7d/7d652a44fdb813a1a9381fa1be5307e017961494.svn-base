@@ -1,0 +1,56 @@
+package org.apache.giraph.comm.messages;
+
+import java.util.HashMap;
+
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Writable;
+
+/**
+ * a customized vertex message store for path evaluation.
+ * it supports efficiently update and retrieve.
+ * Update:
+ * 		-- <tid, qid, sid, weight>
+ * 		-- weight is aggregated.
+ * 
+ * Retrieve: 
+ * 		-- query id
+ *  
+ *  It is like an edge store.
+ *  
+ * @author yxshao
+ *
+ */
+public class VertexMessageStore <D>{
+
+	private HashMap<Integer, HashMap<Integer, D> > messages = new HashMap<Integer, HashMap<Integer, D>> ();
+	
+	public VertexMessageStore() {}
+	
+	public HashMap<Integer, D> getMessageByQuery(int qid) {
+		return messages.get(qid);
+	}
+	
+	public boolean isEmpty() {
+		return messages.isEmpty();
+	}
+
+	/**
+	 * do aggregation here.
+	 * 
+	 * @param vid
+	 * @param elabel
+	 * @param weight
+	 */
+	public void addMessage(int qid, int sid, int weight) {
+		if(messages.get(qid) == null) {
+			messages.put(qid, new HashMap<Integer, D>());
+		}
+		HashMap<Integer, D> messagePerQuery = messages.get(qid);
+		if(messagePerQuery.get(sid) == null) {
+			messagePerQuery.put(sid, (D) new Integer(0));
+		}
+		int result = (Integer) messagePerQuery.get(sid);
+		messagePerQuery.put(sid, (D) new Integer(result + weight));
+	}
+
+}

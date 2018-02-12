@@ -1,0 +1,413 @@
+package org.apache.giraph.tools.graphanalytics.relextractor;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.giraph.comm.messages.VertexMessageStore;
+import org.apache.giraph.edge.Edge;
+import org.apache.giraph.edge.EdgeFactory;
+import org.apache.giraph.graph.Vertex;
+import org.apache.giraph.plan.EdgeDirection;
+import org.apache.giraph.plan.QueryNode;
+import org.apache.giraph.subgraph.graphextraction.PartialAggregatedPathBatch;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
+
+import com.google.common.collect.Lists;
+
+public class BatchGREVertex extends Vertex<IntWritable, IntWritable, IntWritable, PartialAggregatedPathBatch> {
+
+	private ArrayList<Integer> inNbrArray;         /* incoming neighbors */
+	private ArrayList<Integer> inNbrLabelArray;    /* labels of incoming neighbors */
+	private ArrayList<Integer> inWeightArray;      /* incoming edges' weights */
+	private ArrayList<Integer> inEdgeLabelArray;   /* incoming edges' labels */
+	
+	private HashMap<Integer, Integer> outNbrLabel; /* labels of outgoing neighbors */
+	
+	@Override
+	public void compute(Iterable<PartialAggregatedPathBatch> messages) throws IOException {
+		
+		if(getSuperstep() > 10) {
+			this.voteToHalt();
+		}
+		else {
+			return;
+		}
+
+		
+		
+		if(getSuperstep() == 0) { 
+			/* 
+			 * preprocess -- send vertex's label, id and edge weight, to its outgoing neighbors
+			 *            -- as incoming edges of that neighbor and asking for its
+			 *            -- outgoing neighbor's label  
+			 */ 
+			PartialAggregatedPathBatch msg = new PartialAggregatedPathBatch(1);
+			msg.setVid(this.getId().get());
+			msg.setVlabel(this.getValue().get());
+			aggregate("ge.global.stat.vertex.label"+getValue().get(), new LongWritable(1)); //statistic collection
+			for(Edge<IntWritable, IntWritable> edge : this.getEdges()) {
+				msg.clear();
+				msg.setElabel(edge.getValue().get());
+				msg.setWeight(1); //fake number here.
+				msg.incEleNumber();
+				aggregate("ge.global.stat.edge.label"+edge.getValue().get(), new LongWritable(1)); //statistic collection
+				sendMessage(edge.getTargetVertexId(), msg);
+				this.incMsgCount();
+				this.incCompMsgCount();
+			}
+		}
+		else if(getSuperstep() == 1){
+			/*
+			 * preprocess -- materialize incoming edges (id, vlabel, elabel, weights)
+			 *            -- send back the vertex label to incoming edges. 
+			 */
+			inNbrArray = new ArrayList<Integer>();
+			inNbrLabelArray = new ArrayList<Integer>();
+			inWeightArray = new ArrayList<Integer>();
+			inEdgeLabelArray = new ArrayList<Integer>();
+			PartialAggregatedPathBatch newMsg = new PartialAggregatedPathBatch(1);
+			newMsg.setVid(this.getId().get());
+			newMsg.setVlabel(this.getValue().get());
+			newMsg.incEleNumber();
+			for(PartialAggregatedPathBatch msg : messages) {
+				inNbrArray.add(msg.getVid());
+				inNbrLabelArray.add(msg.getVlabel());
+				inEdgeLabelArray.add(msg.getElabel());
+				inWeightArray.add(msg.getWeight());
+				sendMessage(new IntWritable(msg.getVid()), newMsg);
+				this.incMsgCount();
+				this.incCompMsgCount();
+			}
+		}
+		else if(getSuperstep() == 2) {
+			/*
+			 * preprocess -- materialize the outgoing neighbors' label. 
+			 */
+			long startTime = System.currentTimeMillis();
+			outNbrLabel = new HashMap<Integer, Integer> ();
+			for(PartialAggregatedPathBatch msg : messages) {
+				outNbrLabel.put(msg.getVid(), msg.getVlabel());
+			}
+			long midTime = System.currentTimeMillis();
+//			ArrayList<QueryNode> queries = getQueries();
+//			for(QueryNode query : queries) {
+//				processQuery(query, null);
+//			}
+			long endTime = System.currentTimeMillis();
+			this.preCost(midTime-startTime);
+			this.compCost(endTime-midTime);
+		}
+		else {
+			ArrayList<QueryNode> queries = getQueries();
+			if(queries == null) {
+				//end the query process and save the results.
+				saveNewRelations(messages);
+				voteToHalt();
+				return ;
+			}
+			
+			VertexMessageStore vms = new VertexMessageStore();
+			for(PartialAggregatedPathBatch msg : messages) {
+				while(msg.hasNext()) {
+					aggregate("ge.global.path.count", new LongWritable(msg.getWeight()*msg.getTid()));
+					vms.addMessage(msg.getVid(), msg.getQid(), msg.getWeight()*msg.getTid()); //aggregation -I.
+					msg.next();
+				}
+			}
+			for(QueryNode qn : queries) {
+				processQuery(qn, vms);
+			}
+			vms.clear();
+		}
+	}
+	
+	private void saveNewRelations(Iterable<PartialAggregatedPathBatch> messages) {
+		HashMap<Integer, Integer> cleanEdges = new HashMap<Integer, Integer>();
+		for(PartialAggregatedPathBatch msg : messages) {
+//			System.out.println("Final: "+this.getId()+" "+msg.getVid()+" "+msg.getWeight());
+			while(msg.hasNext()) {
+				this.incMsgCount();
+				int nid = msg.getVid();
+				Integer curWeight = cleanEdges.get(nid);
+				if(curWeight == null) {
+					curWeight = 0;
+				}
+				aggregate("ge.global.path.count", new LongWritable(msg.getWeight()*msg.getTid()));
+				curWeight += msg.getWeight() * msg.getTid(); //aggregation - II;
+				cleanEdges.put(nid, curWeight); //TODO: here the root query is Right query, so the messages are grouped by sid.
+				msg.next();
+			}
+		}
+		
+		//save the new relations
+		List<Edge<IntWritable, IntWritable>> edges = Lists.newLinkedList();
+		int count = 0;
+		for(Integer key : cleanEdges.keySet()) {
+			edges.add(EdgeFactory.create(new IntWritable(key), new IntWritable(cleanEdges.get(key))));
+//			this.aggregate("ge.global.edge.weight.max", new IntWritable(cleanEdges.get(key)));
+			count++;
+		}
+//		this.aggregate("ge.global.vertex.degree.max", new IntWritable(count));
+		this.setEdges(edges);
+	}
+
+	private void processQuery(QueryNode qn, VertexMessageStore vms) {
+		if(qn.getNodeLabel() == this.getValue().get()) { //same label
+
+			ArrayList<Integer> id = new ArrayList<Integer>();
+			ArrayList<Integer> weight = new ArrayList<Integer>();
+			
+			if(qn.getLeftEdgeDirection() == EdgeDirection.UNSET && qn.getRightEdgeDirection() == EdgeDirection.UNSET) {
+				/*case 1: qid-qid */
+				processGeneralQuery(qn, vms);
+			}
+			else if(qn.getRightEdgeDirection() == EdgeDirection.UNSET && qn.isLeafNode() == false) {
+				/*case 2: native-qid */
+				HashMap<Integer, Integer> rightMessages = vms.getMessageByQuery(qn.getRightQueryId());
+				getMatchedEdge(qn.getLeftLabel(), qn.getLeftEdgeDirection(), qn.getLeftEdgeLabel(), id, weight);
+				if(rightMessages == null) return;
+				processPartialQuery(rightMessages, id, weight, qn.getNodeId(), qn.isLeftQuery(), false);
+			}
+			else if(qn.getLeftEdgeDirection() == EdgeDirection.UNSET && qn.isLeafNode() == false) {
+				/*case 3: qid-native */
+				HashMap<Integer, Integer> leftMessages = vms.getMessageByQuery(qn.getLeftQueryId());
+				getMatchedEdge(qn.getRightLabel(), qn.getRightEdgeDirection(), qn.getRightEdgeLabel(), id, weight);
+				if(leftMessages == null) return;
+				processPartialQuery(leftMessages, id, weight, qn.getNodeId(), qn.isLeftQuery(), true);
+			}
+			else {
+				processLeafQuery(qn);
+			}
+		}
+	}
+	
+	private void processPartialQuery(HashMap<Integer, Integer> queryMessages,
+			ArrayList<Integer> localNeighbors, ArrayList<Integer> localWeights, int qid, boolean isLeftQuery, boolean isLeftMessage) {
+		
+//		System.out.println("qid="+qid+" isLeftMessage="+isLeftMessage+" isLeftQuery="+isLeftQuery+" messageSize="+queryMessages.size()+" localSize"
+//				+localNeighbors.size()+" vid="+this.getId());
+		
+		if(isLeftQuery == isLeftMessage) {
+			//targetId is from local vertex;
+			PartialAggregatedPathBatch msg = new PartialAggregatedPathBatch(queryMessages.size());
+			long size = queryMessages.size();
+			msg.setElabel(qid);
+			for(int id : queryMessages.keySet()) {
+				msg.setVid(id);
+				msg.setWeight(queryMessages.get(id));
+				msg.incEleNumber();
+			}
+			
+			for(int idx = 0; idx < localNeighbors.size(); ++idx) {
+				msg.setTid(localWeights.get(idx)); /*NOTE: this is the weight of tid's edge.*/
+				sendMessage(new IntWritable(localNeighbors.get(idx)), msg);
+				this.incMsgCount(size);
+				this.incCompMsgCount();
+//				System.out.println("Partial query message: qid="+msg.getQid()+" weight="+msg.getWeight()+" sid="+msg.getVid()+" tid="+targetId+" vid="+this.getId());
+			}
+		}
+		else {
+			//targetId is from queryMessages;
+			PartialAggregatedPathBatch msg = new PartialAggregatedPathBatch(localNeighbors.size());
+			long size = localNeighbors.size();
+			msg.setElabel(qid);
+			for(int idx = 0; idx < localNeighbors.size(); ++idx) {
+				msg.setVid(localNeighbors.get(idx));
+				msg.setWeight(localWeights.get(idx));
+				msg.incEleNumber();
+			}
+			
+			for(int id : queryMessages.keySet()) {
+				msg.setTid(queryMessages.get(id));
+				sendMessage(new IntWritable(id), msg);
+				this.incMsgCount(size);
+				this.incCompMsgCount();
+//				System.out.println("Partial query message: qid="+msg.getQid()+" weight="+msg.getWeight()+" sid="+msg.getVid()+" tid="+targetId+" vid="+this.getId());
+			}
+		}
+	}
+
+	private void processGeneralQuery(QueryNode qn, VertexMessageStore vms) {
+		HashMap<Integer, Integer> leftMessages = vms.getMessageByQuery(qn.getLeftQueryId());
+		HashMap<Integer, Integer> rightMessages = vms.getMessageByQuery(qn.getRightQueryId());
+		
+		if(leftMessages == null || rightMessages == null) return;
+		
+//		this.aggregate("ge.global.edge.weight.max", new IntWritable(leftMessages.size()));
+//		this.aggregate("ge.global.vertex.degree.max", new IntWritable(rightMessages.size()));
+	
+		if(qn.isLeftQuery()) {
+			PartialAggregatedPathBatch msg =  new PartialAggregatedPathBatch(leftMessages.size());
+			long size = leftMessages.size();
+			msg.setElabel(qn.getNodeId());
+			for(int sIdx : leftMessages.keySet()) {
+				msg.setVid(sIdx);
+				msg.setWeight(leftMessages.get(sIdx));
+				msg.incEleNumber();
+			}
+			
+			for(int tIdx : rightMessages.keySet()) {
+				msg.setTid(rightMessages.get(tIdx));
+				sendMessage(new IntWritable(tIdx), msg);
+				this.incMsgCount(size);
+				this.incCompMsgCount();
+//						System.out.println("Middle query message: qid="+msg.getQid()+" weight="+msg.getWeight()+" sid="+msg.getVid()+" tid="+targetId+" vid="+this.getId());
+			}
+		}
+		else {
+			PartialAggregatedPathBatch msg =  new PartialAggregatedPathBatch(rightMessages.size());
+			long size = rightMessages.size();
+			msg.setElabel(qn.getNodeId());
+			for(int tIdx : rightMessages.keySet()) {
+				msg.setVid(tIdx);
+				msg.setWeight(rightMessages.get(tIdx));
+				msg.incEleNumber();
+			}
+			
+			for(int sIdx : leftMessages.keySet()) {
+				msg.setTid(leftMessages.get(sIdx));
+				sendMessage(new IntWritable(sIdx), msg);
+				this.incMsgCount(size);
+				this.incCompMsgCount();
+//					System.out.println("Middle query message: qid="+msg.getQid()+" weight="+msg.getWeight()+" sid="+msg.getVid()+" tid="+targetId+" vid="+this.getId());
+			}
+		}
+	}
+	
+	private void processLeafQuery(QueryNode qn) {
+		int qid = qn.getNodeId();
+			
+		ArrayList<Integer> sid = new ArrayList<Integer>();
+		ArrayList<Integer> sweight = new ArrayList<Integer>();
+		ArrayList<Integer> tid = new ArrayList<Integer>();		
+		ArrayList<Integer> tweight = new ArrayList<Integer>();
+	
+		/* matching process */
+		getMatchedEdge(qn.getLeftLabel(), qn.getLeftEdgeDirection(), qn.getLeftEdgeLabel(), sid, sweight);
+		getMatchedEdge(qn.getRightLabel(), qn.getRightEdgeDirection(), qn.getRightEdgeLabel(), tid, tweight);
+		
+//		this.aggregate("ge.global.left.max", new IntWritable(sid.size()));
+//		this.aggregate("ge.global.right.max", new IntWritable(tid.size()));
+		
+		if(sid.size() == 0 && qn.getLeftEdgeDirection() == EdgeDirection.UNSET) {
+			if(qn.isLeftQuery()) {
+				PartialAggregatedPathBatch msg =  new PartialAggregatedPathBatch(1);
+				msg.setElabel(qid);
+				msg.setWeight(1);
+				msg.setVid(this.getId().get());
+				msg.incEleNumber();
+				for(int tIdx = 0; tIdx < tid.size(); tIdx++) {
+					msg.setTid(tweight.get(tIdx));
+					sendMessage(new IntWritable(tid.get(tIdx)), msg);
+					this.incMsgCount();
+					this.incCompMsgCount();
+				}
+//				System.out.println("Processing left leaf node with out sid!!");
+			}
+			else {
+				PartialAggregatedPathBatch msg =  new PartialAggregatedPathBatch(tid.size());
+				long size = tid.size();
+				msg.setElabel(qid);
+				for(int tIdx = 0; tIdx < tid.size(); tIdx++) {
+					msg.setVid(tid.get(tIdx));
+					msg.setWeight(tweight.get(tIdx));
+					msg.incEleNumber();
+				}
+				msg.setTid(1);
+				sendMessage(this.getId(), msg);
+				this.incMsgCount(size);
+				this.incCompMsgCount();
+			}
+		}
+		else if(tid.size() == 0 && qn.getRightEdgeDirection() == EdgeDirection.UNSET) {
+			if(qn.isLeftQuery()) {
+				PartialAggregatedPathBatch msg =  new PartialAggregatedPathBatch(sid.size());
+				long size = sid.size();
+				msg.setElabel(qid);
+				for(int sIdx = 0; sIdx < sid.size(); sIdx++) {
+					msg.setVid(sid.get(sIdx));
+					msg.setWeight(sweight.get(sIdx));
+					msg.incEleNumber();
+				}
+				msg.setTid(1);
+				sendMessage(this.getId(), msg);
+				this.incMsgCount(size);
+				this.incCompMsgCount();
+			}
+			else {
+				PartialAggregatedPathBatch msg =  new PartialAggregatedPathBatch(1);
+				msg.setElabel(qid);
+				msg.setWeight(1);
+				msg.setVid(this.getId().get());
+				msg.incEleNumber();
+				for(int sIdx = 0; sIdx < sid.size(); sIdx++) {
+					msg.setTid(sweight.get(sIdx));
+					sendMessage(new IntWritable(sid.get(sIdx)), msg);
+					this.incMsgCount();
+					this.incCompMsgCount();
+				}
+			}
+		}
+		else if(tid.size() > 0 && sid.size() > 0){
+			if(qn.isLeftQuery()) {
+				PartialAggregatedPathBatch msg =  new PartialAggregatedPathBatch(sid.size());
+				long size = sid.size();
+				msg.setElabel(qid);
+				for(int sIdx = 0; sIdx < sid.size(); sIdx++) {
+					msg.setVid(sid.get(sIdx));
+					msg.setWeight(sweight.get(sIdx));
+					msg.incEleNumber();
+				}
+				for(int tIdx = 0; tIdx < tid.size(); tIdx++) {
+					msg.setTid(tweight.get(tIdx));
+					sendMessage(new IntWritable(tid.get(tIdx)), msg);
+					this.incMsgCount(size);
+					this.incCompMsgCount();
+				}
+			}
+			else {
+				PartialAggregatedPathBatch msg =  new PartialAggregatedPathBatch(tid.size());
+				long size = tid.size();
+				msg.setElabel(qid);
+				for(int tIdx = 0; tIdx < tid.size(); tIdx++) {
+					msg.setVid(tid.get(tIdx));
+					msg.setWeight(tweight.get(tIdx));
+					msg.incEleNumber();
+				}
+				for(int sIdx = 0; sIdx < sid.size(); sIdx++) {
+					msg.setTid(sweight.get(sIdx));
+					sendMessage(new IntWritable(sid.get(sIdx)), msg);
+					this.incMsgCount(size);
+					this.incCompMsgCount();
+				}
+			}
+		}
+	}
+	
+	private void getMatchedEdge(int vlabel, EdgeDirection edgeDirection,
+			int elabel, ArrayList<Integer> sid,
+			ArrayList<Integer> sweight) {
+		if(edgeDirection == EdgeDirection.INCOMING || edgeDirection == EdgeDirection.BOTH) {
+			for(int idx = 0; idx < inNbrArray.size(); ++idx) {
+				if((inNbrLabelArray.get(idx) != null && inNbrLabelArray.get(idx) == vlabel) && inEdgeLabelArray.get(idx) == elabel) {
+					sid.add(inNbrArray.get(idx));
+					sweight.add(inWeightArray.get(idx));
+				}
+			}
+		}
+
+		if(edgeDirection == EdgeDirection.OUTGOING || edgeDirection == EdgeDirection.BOTH) {
+			for(Edge<IntWritable, IntWritable> edge : this.getEdges()) {
+				if((outNbrLabel.get(edge.getTargetVertexId().get()) != null && outNbrLabel.get(edge.getTargetVertexId().get()) == vlabel) 
+						&& edge.getValue().get() == elabel) {
+					sid.add(edge.getTargetVertexId().get());
+					sweight.add(1); //magic number that the initial weight of an edge is 1.
+				}
+			}
+		}
+	}
+
+}

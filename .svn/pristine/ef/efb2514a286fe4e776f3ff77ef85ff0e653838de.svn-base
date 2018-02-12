@@ -1,0 +1,35 @@
+package org.apache.giraph.subgraph.graphextraction;
+
+import java.util.Collection;
+
+public interface BasicGraphStoreInterface {
+	
+	/* vertex access interface */
+	public BasicVertex getVertex(int localId);
+	public Collection<BasicVertex> getLocalVertex();
+	public Collection<BasicVertex> getAllVertex();
+	public BasicVertex createVertex(int globalId, int label);
+	public boolean hasVertex(int globalId);
+	public boolean isRemoteVertex(int localId);
+	
+	public int getLocalId(int globalId);
+	public int getGlobalId(int localId);
+	
+	/* global statistics */
+	public long getTotalEdgeCount();
+	public long getVertexCount();
+	public long getTotalVertexCount();
+	public long getEdgeCount();
+	
+	/* initialize */
+	public void inititalGraphStore();
+	
+	/* debug */
+	public void dump();
+	public void printStatstics();
+	public void printGid2LidMap();
+	
+	/* */
+	public void addMsgEdge(int vid, BasicEdge be);
+	public void clearMessage();
+}
