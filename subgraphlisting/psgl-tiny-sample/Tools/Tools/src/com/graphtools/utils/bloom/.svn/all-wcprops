@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/yxshao/!svn/ver/890/PAGE/branches/Tools/src/com/graphtools/utils/bloom
+END
+Filter.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/yxshao/!svn/ver/890/PAGE/branches/Tools/src/com/graphtools/utils/bloom/Filter.java
+END
+Key.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/yxshao/!svn/ver/886/PAGE/branches/Tools/src/com/graphtools/utils/bloom/Key.java
+END
+HashFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/yxshao/!svn/ver/886/PAGE/branches/Tools/src/com/graphtools/utils/bloom/HashFunction.java
+END
+BloomFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/yxshao/!svn/ver/890/PAGE/branches/Tools/src/com/graphtools/utils/bloom/BloomFilter.java
+END

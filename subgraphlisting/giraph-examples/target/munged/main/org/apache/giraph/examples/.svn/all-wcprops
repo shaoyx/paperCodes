@@ -1,0 +1,203 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples
+END
+SimpleMasterComputeVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleMasterComputeVertex.java
+END
+SimpleSuperstepVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleSuperstepVertex.java
+END
+SimpleLongDoubleDoubleDoubleIdentityVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleLongDoubleDoubleDoubleIdentityVertex.java
+END
+SimpleInDegreeCountVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleInDegreeCountVertex.java
+END
+SimpleOutDegreeCountVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleOutDegreeCountVertex.java
+END
+VerifyMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/VerifyMessage.java
+END
+PartitionContextTestVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/PartitionContextTestVertex.java
+END
+LongDoubleDoubleDoubleTextInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/LongDoubleDoubleDoubleTextInputFormat.java
+END
+GeneratedVertexReader.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/GeneratedVertexReader.java
+END
+VertexWithDoubleValueDoubleEdgeTextOutputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/VertexWithDoubleValueDoubleEdgeTextOutputFormat.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/package-info.java
+END
+Algorithm.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/Algorithm.java
+END
+NormalizingLongDoubleDoubleDoubleTextInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/NormalizingLongDoubleDoubleDoubleTextInputFormat.java
+END
+SimpleMutateGraphVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleMutateGraphVertex.java
+END
+RandomWalkVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/RandomWalkVertex.java
+END
+RandomWalkWorkerContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/RandomWalkWorkerContext.java
+END
+SimpleCheckpointVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleCheckpointVertex.java
+END
+SimplePageRankVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/SimplePageRankVertex.java
+END
+AggregatorsTestVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/AggregatorsTestVertex.java
+END
+ConnectedComponentsVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/ConnectedComponentsVertex.java
+END
+SimpleCombinerVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleCombinerVertex.java
+END
+LongDoubleNullDoubleTextInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/LongDoubleNullDoubleTextInputFormat.java
+END
+VertexWithDoubleValueNullEdgeTextOutputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/VertexWithDoubleValueNullEdgeTextOutputFormat.java
+END
+SimpleVertexWithWorkerContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleVertexWithWorkerContext.java
+END
+SimpleShortestPathsVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleShortestPathsVertex.java
+END
+SimpleFailVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleFailVertex.java
+END
+SimpleTextVertexOutputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleTextVertexOutputFormat.java
+END
+PageRankVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/PageRankVertex.java
+END
+IdentityVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/IdentityVertex.java
+END
+SimpleAggregatorWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleAggregatorWriter.java
+END
+SimpleTriangleClosingVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleTriangleClosingVertex.java
+END
+SimpleMsgVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/SimpleMsgVertex.java
+END
+RandomWalkWithRestartVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/main/java/org/apache/giraph/examples/RandomWalkWithRestartVertex.java
+END

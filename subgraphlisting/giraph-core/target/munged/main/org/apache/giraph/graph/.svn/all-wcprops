@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/yxshao/!svn/ver/1565/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph
+END
+VertexResolver.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/VertexResolver.java
+END
+InputSplitEvents.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/InputSplitEvents.java
+END
+VertexValueFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/VertexValueFactory.java
+END
+GraphState.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/GraphState.java
+END
+DefaultVertexResolver.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/DefaultVertexResolver.java
+END
+GiraphTransferRegulator.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/GiraphTransferRegulator.java
+END
+VertexChanges.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/VertexChanges.java
+END
+GraphMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/GraphMapper.java
+END
+AddressesAndPartitionsWritable.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/AddressesAndPartitionsWritable.java
+END
+DefaultVertexValueFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/DefaultVertexValueFactory.java
+END
+WorkloadEstimationDistributor.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/yxshao/!svn/ver/1213/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/WorkloadEstimationDistributor.java
+END
+Distributor.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/yxshao/!svn/ver/1178/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/Distributor.java
+END
+VertexEdgeCount.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/VertexEdgeCount.java
+END
+InputSplitPaths.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/InputSplitPaths.java
+END
+RandomDistributor.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/yxshao/!svn/ver/1178/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/RandomDistributor.java
+END
+Vertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/yxshao/!svn/ver/1565/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/Vertex.java
+END
+TaskInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/TaskInfo.java
+END
+AccurateWEDistributor.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/yxshao/!svn/ver/1197/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/AccurateWEDistributor.java
+END
+GraphTaskManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/yxshao/!svn/ver/1117/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/GraphTaskManager.java
+END
+GlobalStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/GlobalStats.java
+END
+VertexMutations.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/VertexMutations.java
+END
+GraphStateAware.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/GraphStateAware.java
+END
+VertexProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/yxshao/!svn/ver/1178/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/VertexProperty.java
+END
+FinishedSuperstepStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/FinishedSuperstepStats.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/package-info.java
+END
+GraphFunctions.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/GraphFunctions.java
+END
+ComputeCallable.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/yxshao/!svn/ver/1187/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/ComputeCallable.java
+END
+RouletteDistributor.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/yxshao/!svn/ver/1178/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/graph/RouletteDistributor.java
+END

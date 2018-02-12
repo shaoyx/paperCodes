@@ -1,0 +1,191 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators
+END
+IntMinAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/IntMinAggregator.java
+END
+DoubleSumAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/DoubleSumAggregator.java
+END
+LongProductAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/LongProductAggregator.java
+END
+IntMaxAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/IntMaxAggregator.java
+END
+BooleanAndAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/BooleanAndAggregator.java
+END
+AggregatorUsage.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/AggregatorUsage.java
+END
+LongOverwriteAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/LongOverwriteAggregator.java
+END
+FloatProductAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/FloatProductAggregator.java
+END
+TextAppendAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/TextAppendAggregator.java
+END
+AggregatorWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/AggregatorWriter.java
+END
+FloatOverwriteAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/FloatOverwriteAggregator.java
+END
+DoubleMinAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/DoubleMinAggregator.java
+END
+Aggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/Aggregator.java
+END
+AggregatorWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/AggregatorWrapper.java
+END
+BooleanOrAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/BooleanOrAggregator.java
+END
+DoubleMaxAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/DoubleMaxAggregator.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/package-info.java
+END
+TextAggregatorWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/TextAggregatorWriter.java
+END
+LongSumAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/LongSumAggregator.java
+END
+FloatSumAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/FloatSumAggregator.java
+END
+IntProductAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/IntProductAggregator.java
+END
+IntOverwriteAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/IntOverwriteAggregator.java
+END
+LongMinAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/LongMinAggregator.java
+END
+LongMaxAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/LongMaxAggregator.java
+END
+FloatMinAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/FloatMinAggregator.java
+END
+DoubleProductAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/DoubleProductAggregator.java
+END
+FloatMaxAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/FloatMaxAggregator.java
+END
+IntSumAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/IntSumAggregator.java
+END
+BasicAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/BasicAggregator.java
+END
+DoubleOverwriteAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/DoubleOverwriteAggregator.java
+END
+BooleanOverwriteAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/aggregators/BooleanOverwriteAggregator.java
+END

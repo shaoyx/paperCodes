@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/combiner
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/combiner/package-info.java
+END
+MinimumDoubleCombiner.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/combiner/MinimumDoubleCombiner.java
+END
+MinimumIntCombiner.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/combiner/MinimumIntCombiner.java
+END
+SimpleSumCombiner.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/combiner/SimpleSumCombiner.java
+END
+Combiner.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/combiner/Combiner.java
+END
+DoubleSumCombiner.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/combiner/DoubleSumCombiner.java
+END

@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/yxshao/!svn/ver/1117/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/bsp
+END
+CentralizedServiceWorker.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/yxshao/!svn/ver/1117/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/bsp/CentralizedServiceWorker.java
+END
+BspInputSplit.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/bsp/BspInputSplit.java
+END
+BspRecordWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/bsp/BspRecordWriter.java
+END
+CentralizedServiceMaster.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/bsp/CentralizedServiceMaster.java
+END
+ApplicationState.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/bsp/ApplicationState.java
+END
+ImmutableOutputCommitter.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/bsp/ImmutableOutputCommitter.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/bsp/package-info.java
+END
+BspService.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/bsp/BspService.java
+END
+CentralizedService.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/bsp/CentralizedService.java
+END
+BspRecordReader.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/bsp/BspRecordReader.java
+END
+SuperstepState.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/bsp/SuperstepState.java
+END
+BspInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/bsp/BspInputFormat.java
+END
+BspOutputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/bsp/BspOutputFormat.java
+END

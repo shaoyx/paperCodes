@@ -1,0 +1,17 @@
+org/apache/giraph/hive/input/vertex/HiveToVertexValue.class
+org/apache/giraph/hive/output/HiveVertexWriter.class
+org/apache/giraph/hive/common/HiveProfiles.class
+org/apache/giraph/hive/HiveGiraphRunner.class
+org/apache/giraph/hive/input/vertex/HiveVertexReader.class
+org/apache/giraph/hive/output/AbstractVertexToHive.class
+org/apache/giraph/hive/input/edge/AbstractHiveToEdge.class
+org/apache/giraph/hive/output/HiveVertexOutputFormat.class
+org/apache/giraph/hive/output/VertexToHive.class
+org/apache/giraph/hive/input/vertex/HiveVertexInputFormat.class
+org/apache/giraph/hive/input/vertex/HiveToVertexEdges.class
+org/apache/giraph/hive/input/edge/HiveEdgeReader.class
+org/apache/giraph/hive/input/edge/HiveToEdge.class
+org/apache/giraph/hive/input/vertex/AbstractHiveToVertexValue.class
+org/apache/giraph/hive/input/vertex/AbstractHiveToVertexEdges.class
+org/apache/giraph/hive/input/edge/HiveEdgeInputFormat.class
+org/apache/giraph/hive/input/vertex/HiveToVertexEdges$Empty.class

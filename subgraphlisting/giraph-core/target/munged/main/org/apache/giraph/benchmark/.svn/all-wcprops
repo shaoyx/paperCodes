@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/benchmark
+END
+AggregatorsBenchmark.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/benchmark/AggregatorsBenchmark.java
+END
+RandomMessageBenchmark.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/benchmark/RandomMessageBenchmark.java
+END
+PageRankBenchmark.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/benchmark/PageRankBenchmark.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/benchmark/package-info.java
+END
+PageRankVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/benchmark/PageRankVertex.java
+END
+ShortestPathsBenchmark.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/benchmark/ShortestPathsBenchmark.java
+END
+ShortestPathsVertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/benchmark/ShortestPathsVertex.java
+END

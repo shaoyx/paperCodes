@@ -1,0 +1,257 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/yxshao/!svn/ver/1107/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition
+END
+SimpleLongRangePartitionerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/SimpleLongRangePartitionerFactory.java
+END
+RangePartitionOwner.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/RangePartitionOwner.java
+END
+PartitionBalancer.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/PartitionBalancer.java
+END
+SimpleRangeMasterPartitioner.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/SimpleRangeMasterPartitioner.java
+END
+RangePartitionerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/RangePartitionerFactory.java
+END
+RangePartitionStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/RangePartitionStats.java
+END
+IterativeStreamMasterPartitioner.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/IterativeStreamMasterPartitioner.java
+END
+RangeWorkerPartitioner.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/RangeWorkerPartitioner.java
+END
+Partition.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/Partition.java
+END
+PartitionExchange.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/PartitionExchange.java
+END
+WorkerGraphPartitioner.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/WorkerGraphPartitioner.java
+END
+HashMasterPartitioner.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/1107/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/HashMasterPartitioner.java
+END
+DefaultPartitionContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/DefaultPartitionContext.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/package-info.java
+END
+BasicPartitionOwner.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/BasicPartitionOwner.java
+END
+RangeMasterPartitioner.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/RangeMasterPartitioner.java
+END
+IdenticalWithRelabelWorkerPartitioner.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/IdenticalWithRelabelWorkerPartitioner.java
+END
+SimpleIntRangePartitionerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/SimpleIntRangePartitionerFactory.java
+END
+RangeSplitHint.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/RangeSplitHint.java
+END
+HashPartitionerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/HashPartitionerFactory.java
+END
+MasterGraphPartitioner.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/MasterGraphPartitioner.java
+END
+SimplePartitionStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/SimplePartitionStore.java
+END
+IdenticalPartitionerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/IdenticalPartitionerFactory.java
+END
+IdenticalWorkerPartitioner.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/IdenticalWorkerPartitioner.java
+END
+HashRangePartitionerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/HashRangePartitionerFactory.java
+END
+GraphPartitionerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/GraphPartitionerFactory.java
+END
+BasicPartition.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/BasicPartition.java
+END
+HashRangeWorkerPartitioner.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/HashRangeWorkerPartitioner.java
+END
+PartitionContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/PartitionContext.java
+END
+IterativeStreamPartitionerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/IterativeStreamPartitionerFactory.java
+END
+SimpleRangeWorkerPartitioner.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/SimpleRangeWorkerPartitioner.java
+END
+IterativeStreamWorkerPartitioner.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/IterativeStreamWorkerPartitioner.java
+END
+SimplePartition.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/SimplePartition.java
+END
+PartitionOwner.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/PartitionOwner.java
+END
+PartitionStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/PartitionStore.java
+END
+PartitionStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/PartitionStats.java
+END
+IdenticalWithRelabelPartitionerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/IdenticalWithRelabelPartitionerFactory.java
+END
+IdenticalMasterPartitioner.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/IdenticalMasterPartitioner.java
+END
+PartitionUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/yxshao/!svn/ver/1106/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/PartitionUtils.java
+END
+DiskBackedPartitionStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/DiskBackedPartitionStore.java
+END
+ByteArrayPartition.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/ByteArrayPartition.java
+END
+HashWorkerPartitioner.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/partition/HashWorkerPartitioner.java
+END

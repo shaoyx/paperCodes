@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/yxshao/!svn/ver/1566/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph
+END
+GiraphRunner.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/GiraphRunner.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/package-info.java
+END
+Algorithm.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/Algorithm.java
+END

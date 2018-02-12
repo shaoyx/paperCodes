@@ -1,0 +1,37 @@
+#!/bin/bash
+generateSrclist () {
+	#use local to define local variable
+	local pdir=$1;
+	local path=$pdir/$2;
+#	echo $path
+#	ls $path
+	for file in `ls $path`
+	do
+#		echo $path $file
+#		echo $(expr match "$file" ".*.java")
+		if [ -d $path/$file ]; then
+			generateSrclist $path $file
+#			echo $path $file
+		elif [ "$(expr match "$file" ".*.java")" -gt 0 ]; then
+			echo $path/$file >> srclist.txt
+		fi
+	done
+}
+
+svn update
+
+#compile source code
+rm srclist.txt &> /dev/null
+generateSrclist . src
+
+classpath=.:src/:lib/commons-cli-1.2/commons-cli-1.2.jar
+javac -d bin/ -cp $classpath @srclist.txt
+
+toolname="GraphTools.jar"
+if [ $# -eq 1 ];
+then
+    toolname=$1
+fi
+#generate Jar
+jar cvfm $toolname MAINIFEST.MF -C bin com/
+jar uvf $toolname -C lib commons-cli-1.2/commons-cli-1.2.jar

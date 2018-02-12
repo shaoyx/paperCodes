@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats
+END
+SequenceFileVertexInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/SequenceFileVertexInputFormat.java
+END
+TextDoubleDoubleAdjacencyListVertexInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/TextDoubleDoubleAdjacencyListVertexInputFormat.java
+END
+SequenceFileVertexOutputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/SequenceFileVertexOutputFormat.java
+END
+TextEdgeInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/TextEdgeInputFormat.java
+END
+GiraphFileInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/GiraphFileInputFormat.java
+END
+IntNullReverseTextEdgeInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/IntNullReverseTextEdgeInputFormat.java
+END
+JsonBase64VertexInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/JsonBase64VertexInputFormat.java
+END
+JsonBase64VertexOutputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/JsonBase64VertexOutputFormat.java
+END
+IntNullTextEdgeInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/IntNullTextEdgeInputFormat.java
+END
+GiraphTextInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/GiraphTextInputFormat.java
+END
+TextVertexValueInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/TextVertexValueInputFormat.java
+END
+IntNullNullNullTextInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/IntNullNullNullTextInputFormat.java
+END
+IntIntNullIntTextInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/IntIntNullIntTextInputFormat.java
+END
+AdjacencyListTextVertexInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/AdjacencyListTextVertexInputFormat.java
+END
+AdjacencyListTextVertexOutputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/AdjacencyListTextVertexOutputFormat.java
+END
+LongDoubleDoubleAdjacencyListVertexInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/LongDoubleDoubleAdjacencyListVertexInputFormat.java
+END
+TextVertexInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/TextVertexInputFormat.java
+END
+TextVertexOutputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/TextVertexOutputFormat.java
+END
+PseudoRandomEdgeInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/PseudoRandomEdgeInputFormat.java
+END
+PseudoRandomLocalEdgesHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/PseudoRandomLocalEdgesHelper.java
+END
+IdWithValueTextOutputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/IdWithValueTextOutputFormat.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/package-info.java
+END
+JsonBase64VertexFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/JsonBase64VertexFormat.java
+END
+GeneratedVertexInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/GeneratedVertexInputFormat.java
+END
+PseudoRandomInputFormatConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/PseudoRandomInputFormatConstants.java
+END
+PseudoRandomVertexInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/PseudoRandomVertexInputFormat.java
+END
+JsonLongDoubleFloatDoubleVertexInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/JsonLongDoubleFloatDoubleVertexInputFormat.java
+END
+JsonLongDoubleFloatDoubleVertexOutputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/JsonLongDoubleFloatDoubleVertexOutputFormat.java
+END
+IntIntTextVertexValueInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/io/formats/IntIntTextVertexValueInputFormat.java
+END

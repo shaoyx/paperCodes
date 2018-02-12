@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/yxshao/!svn/ver/1565/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/netty/handler
+END
+AuthorizeServerHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/netty/handler/AuthorizeServerHandler.java
+END
+SaslClientHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/netty/handler/SaslClientHandler.java
+END
+ClientRequestId.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/netty/handler/ClientRequestId.java
+END
+RequestInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/netty/handler/RequestInfo.java
+END
+WorkerRequestServerHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/netty/handler/WorkerRequestServerHandler.java
+END
+RequestServerHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/netty/handler/RequestServerHandler.java
+END
+RequestDecoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/yxshao/!svn/ver/1565/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/netty/handler/RequestDecoder.java
+END
+WorkerRequestReservedMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/netty/handler/WorkerRequestReservedMap.java
+END
+AddressRequestIdGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/netty/handler/AddressRequestIdGenerator.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/netty/handler/package-info.java
+END
+SaslServerHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/netty/handler/SaslServerHandler.java
+END
+RequestEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/netty/handler/RequestEncoder.java
+END
+MasterRequestServerHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/netty/handler/MasterRequestServerHandler.java
+END
+ResponseClientHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/netty/handler/ResponseClientHandler.java
+END
+ResponseEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/netty/handler/ResponseEncoder.java
+END

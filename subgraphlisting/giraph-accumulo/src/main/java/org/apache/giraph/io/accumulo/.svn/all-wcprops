@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-accumulo/src/main/java/org/apache/giraph/io/accumulo
+END
+AccumuloVertexInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-accumulo/src/main/java/org/apache/giraph/io/accumulo/AccumuloVertexInputFormat.java
+END
+AccumuloVertexOutputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-accumulo/src/main/java/org/apache/giraph/io/accumulo/AccumuloVertexOutputFormat.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-accumulo/src/main/java/org/apache/giraph/io/accumulo/package-info.java
+END

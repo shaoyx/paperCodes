@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hcatalog/src/main/java/org/apache/giraph/io/hcatalog
+END
+HCatalogEdgeInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hcatalog/src/main/java/org/apache/giraph/io/hcatalog/HCatalogEdgeInputFormat.java
+END
+GiraphHCatInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hcatalog/src/main/java/org/apache/giraph/io/hcatalog/GiraphHCatInputFormat.java
+END
+HCatGiraphRunner.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hcatalog/src/main/java/org/apache/giraph/io/hcatalog/HCatGiraphRunner.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hcatalog/src/main/java/org/apache/giraph/io/hcatalog/package-info.java
+END
+HCatalogVertexValueInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hcatalog/src/main/java/org/apache/giraph/io/hcatalog/HCatalogVertexValueInputFormat.java
+END
+HCatalogVertexInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hcatalog/src/main/java/org/apache/giraph/io/hcatalog/HCatalogVertexInputFormat.java
+END
+HCatalogVertexOutputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hcatalog/src/main/java/org/apache/giraph/io/hcatalog/HCatalogVertexOutputFormat.java
+END
+HiveUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hcatalog/src/main/java/org/apache/giraph/io/hcatalog/HiveUtils.java
+END

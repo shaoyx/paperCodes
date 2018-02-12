@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/integration
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/integration/package-info.java
+END
+SuperstepHashPartitionerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/integration/SuperstepHashPartitionerFactory.java
+END

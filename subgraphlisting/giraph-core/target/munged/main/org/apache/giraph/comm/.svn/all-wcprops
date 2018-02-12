@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/yxshao/!svn/ver/1565/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm
+END
+ServerData.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/ServerData.java
+END
+WorkerServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/WorkerServer.java
+END
+SendMutationsCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/SendMutationsCache.java
+END
+WorkerClientRequestProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/yxshao/!svn/ver/1024/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/WorkerClientRequestProcessor.java
+END
+SendEdgeCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/SendEdgeCache.java
+END
+MasterServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/MasterServer.java
+END
+SendMessageCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/SendMessageCache.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/package-info.java
+END
+SendPartitionCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/SendPartitionCache.java
+END
+WorkerClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/WorkerClient.java
+END
+MasterClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/MasterClient.java
+END
+SendCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/SendCache.java
+END

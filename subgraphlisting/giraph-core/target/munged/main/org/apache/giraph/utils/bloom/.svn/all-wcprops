@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/yxshao/!svn/ver/893/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/utils/bloom
+END
+Filter.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/yxshao/!svn/ver/893/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/utils/bloom/Filter.java
+END
+Key.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/yxshao/!svn/ver/893/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/utils/bloom/Key.java
+END
+HashFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/yxshao/!svn/ver/893/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/utils/bloom/HashFunction.java
+END
+BloomFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/yxshao/!svn/ver/893/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/utils/bloom/BloomFilter.java
+END

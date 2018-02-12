@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/yxshao/!svn/ver/1777/PAGE/branches/Tools/src/com/graphtools/subgraphmatch
+END
+EdgeDegree.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/yxshao/!svn/ver/1501/PAGE/branches/Tools/src/com/graphtools/subgraphmatch/EdgeDegree.java
+END
+EdgeIndexBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/yxshao/!svn/ver/1707/PAGE/branches/Tools/src/com/graphtools/subgraphmatch/EdgeIndexBuilder.java
+END
+AdjformateWithDegree.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/yxshao/!svn/ver/1777/PAGE/branches/Tools/src/com/graphtools/subgraphmatch/AdjformateWithDegree.java
+END
+QuerySymmetryBroker.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/yxshao/!svn/ver/1235/PAGE/branches/Tools/src/com/graphtools/subgraphmatch/QuerySymmetryBroker.java
+END
+QueryEnumerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/yxshao/!svn/ver/1163/PAGE/branches/Tools/src/com/graphtools/subgraphmatch/QueryEnumerator.java
+END
+GraphLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/yxshao/!svn/ver/992/PAGE/branches/Tools/src/com/graphtools/subgraphmatch/GraphLoader.java
+END
+NeighborLabelExtractor.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/yxshao/!svn/ver/845/PAGE/branches/Tools/src/com/graphtools/subgraphmatch/NeighborLabelExtractor.java
+END
+TopoQueryEnumerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/yxshao/!svn/ver/1052/PAGE/branches/Tools/src/com/graphtools/subgraphmatch/TopoQueryEnumerator.java
+END
+DegreeCounter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/yxshao/!svn/ver/1557/PAGE/branches/Tools/src/com/graphtools/subgraphmatch/DegreeCounter.java
+END
+RandomQueryGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/yxshao/!svn/ver/874/PAGE/branches/Tools/src/com/graphtools/subgraphmatch/RandomQueryGenerator.java
+END
+RelabelByDegree.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/yxshao/!svn/ver/1514/PAGE/branches/Tools/src/com/graphtools/subgraphmatch/RelabelByDegree.java
+END

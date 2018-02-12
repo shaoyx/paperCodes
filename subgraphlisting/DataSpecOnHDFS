@@ -1,0 +1,7 @@
+Shared Data:
+	QueryGraph, EdgeOrientation -- /user/simon/subgraphmatch/querygraph
+Private Data:
+	GraphName
+		graph
+		edgeindex
+		vertex2labelmap

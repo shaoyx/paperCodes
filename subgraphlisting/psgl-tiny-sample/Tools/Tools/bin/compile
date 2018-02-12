@@ -1,0 +1,14 @@
+#!/bin/bash
+svn update
+javac -cp . com/graphtools/GraphTools.java \
+		   com/graphtools/subgraphmatch/EdgeIndexBuilder.java \
+		   com/graphtools/subgraphmatch/GraphLoader.java \
+		   com/graphtools/subgraphmatch/NeighborLabelExtractor.java \
+		   com/graphtools/subgraphmatch/RandomQueryGenerator.java \
+		   com/graphtools/utils/bloom/BloomFilter.java \
+		   com/graphtools/utils/bloom/Filter.java \
+		   com/graphtools/utils/bloom/HashFunction.java \
+		   com/graphtools/utils/bloom/Key.java \
+		   com/graphtools/utils/hash/Hash.java \
+		   com/graphtools/utils/hash/JenkinsHash.java \
+		   com/graphtools/utils/hash/MurmurHash.java

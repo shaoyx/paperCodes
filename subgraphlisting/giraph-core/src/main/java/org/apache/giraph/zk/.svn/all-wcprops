@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/zk
+END
+ZooKeeperExt.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/zk/ZooKeeperExt.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/zk/package-info.java
+END
+BspEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/zk/BspEvent.java
+END
+GiraphZooKeeperAdmin.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/zk/GiraphZooKeeperAdmin.java
+END
+PredicateLock.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/zk/PredicateLock.java
+END
+ZooKeeperManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/zk/ZooKeeperManager.java
+END

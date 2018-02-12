@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/partition
+END
+TestGiraphTransferRegulator.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/partition/TestGiraphTransferRegulator.java
+END
+TestPartitionStores.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/partition/TestPartitionStores.java
+END

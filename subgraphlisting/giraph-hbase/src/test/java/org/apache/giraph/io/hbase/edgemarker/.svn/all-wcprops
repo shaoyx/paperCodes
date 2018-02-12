@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hbase/src/test/java/org/apache/giraph/io/hbase/edgemarker
+END
+TableEdgeInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hbase/src/test/java/org/apache/giraph/io/hbase/edgemarker/TableEdgeInputFormat.java
+END
+TableEdgeOutputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hbase/src/test/java/org/apache/giraph/io/hbase/edgemarker/TableEdgeOutputFormat.java
+END

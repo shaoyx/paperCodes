@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics
+END
+LongAndTimeUnit.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/LongAndTimeUnit.java
+END
+GiraphMetrics.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/GiraphMetrics.java
+END
+MetricsRegistryDebugger.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/MetricsRegistryDebugger.java
+END
+ValueWithHostname.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/ValueWithHostname.java
+END
+MetricNames.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/MetricNames.java
+END
+SuperstepMetricsRegistry.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/SuperstepMetricsRegistry.java
+END
+MeterDesc.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/MeterDesc.java
+END
+GiraphTimer.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/GiraphTimer.java
+END
+WorkerSuperstepMetrics.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/WorkerSuperstepMetrics.java
+END
+TimerDesc.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/TimerDesc.java
+END
+GiraphTimerContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/GiraphTimerContext.java
+END
+AggregatedMetrics.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/AggregatedMetrics.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/package-info.java
+END
+ValueGauge.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/ValueGauge.java
+END
+GiraphMetricsRegistry.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/GiraphMetricsRegistry.java
+END
+NoOpMetricsRegistry.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/NoOpMetricsRegistry.java
+END
+ResetSuperstepMetricsObserver.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/ResetSuperstepMetricsObserver.java
+END
+AggregatedMetric.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/metrics/AggregatedMetric.java
+END

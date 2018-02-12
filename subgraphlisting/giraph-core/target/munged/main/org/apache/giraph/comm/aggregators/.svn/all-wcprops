@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/aggregators
+END
+AggregatorOutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/aggregators/AggregatorOutputStream.java
+END
+SendAggregatorCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/aggregators/SendAggregatorCache.java
+END
+AggregatorUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/aggregators/AggregatorUtils.java
+END
+CountingOutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/aggregators/CountingOutputStream.java
+END
+AggregatedValueOutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/aggregators/AggregatedValueOutputStream.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/aggregators/package-info.java
+END
+SendAggregatedValueCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/aggregators/SendAggregatedValueCache.java
+END
+WorkerAggregatorRequestProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/aggregators/WorkerAggregatorRequestProcessor.java
+END
+CountingCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/aggregators/CountingCache.java
+END
+AllAggregatorServerData.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/aggregators/AllAggregatorServerData.java
+END
+OwnerAggregatorServerData.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/aggregators/OwnerAggregatorServerData.java
+END

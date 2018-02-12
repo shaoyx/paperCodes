@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph
+END
+TestAutoCheckpoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/TestAutoCheckpoint.java
+END
+TestMaxSuperstep.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/TestMaxSuperstep.java
+END
+TestMutateGraph.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/TestMutateGraph.java
+END
+TestGraphPartitioner.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/TestGraphPartitioner.java
+END
+TestManualCheckpoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/TestManualCheckpoint.java
+END
+TestBspBasic.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/TestBspBasic.java
+END
+TestNotEnoughMapTasks.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/TestNotEnoughMapTasks.java
+END
+TestPartitionContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/TestPartitionContext.java
+END

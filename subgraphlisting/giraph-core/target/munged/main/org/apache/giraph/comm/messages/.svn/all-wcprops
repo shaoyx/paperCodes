@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/messages
+END
+MessageStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/messages/MessageStore.java
+END
+BasicMessageStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/messages/BasicMessageStore.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/messages/package-info.java
+END
+ByteArrayMessagesPerVertexStoreNoSync.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/messages/ByteArrayMessagesPerVertexStoreNoSync.java
+END
+DiskBackedMessageStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/messages/DiskBackedMessageStore.java
+END
+MessageStoreByPartition.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/messages/MessageStoreByPartition.java
+END
+FlushableMessageStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/messages/FlushableMessageStore.java
+END
+OneMessagePerVertexStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/messages/OneMessagePerVertexStore.java
+END
+MessageStoreFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/messages/MessageStoreFactory.java
+END
+DiskBackedMessageStoreByPartition.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/messages/DiskBackedMessageStoreByPartition.java
+END
+SimpleMessageStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/messages/SimpleMessageStore.java
+END
+ByteArrayMessagesPerVertexStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/messages/ByteArrayMessagesPerVertexStore.java
+END
+SequentialFileMessageStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/messages/SequentialFileMessageStore.java
+END

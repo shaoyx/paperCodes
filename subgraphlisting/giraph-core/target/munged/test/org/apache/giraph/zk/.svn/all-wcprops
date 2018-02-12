@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/zk
+END
+TestZooKeeperExt.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/zk/TestZooKeeperExt.java
+END
+TestPredicateLock.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/zk/TestPredicateLock.java
+END
+TestZooKeeperManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/zk/TestZooKeeperManager.java
+END

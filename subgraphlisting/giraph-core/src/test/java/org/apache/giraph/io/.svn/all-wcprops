@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/io
+END
+TestTextDoubleDoubleAdjacencyListVertexInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/io/TestTextDoubleDoubleAdjacencyListVertexInputFormat.java
+END
+TestEdgeInput.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/io/TestEdgeInput.java
+END
+TestIdWithValueTextOutputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/io/TestIdWithValueTextOutputFormat.java
+END
+TestJsonBase64Format.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/io/TestJsonBase64Format.java
+END
+TestAdjacencyListTextVertexOutputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/io/TestAdjacencyListTextVertexOutputFormat.java
+END
+TestLongDoubleDoubleAdjacencyListVertexInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/io/TestLongDoubleDoubleAdjacencyListVertexInputFormat.java
+END

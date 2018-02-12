@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/aggregators
+END
+TestDoubleAggregators.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/aggregators/TestDoubleAggregators.java
+END
+TestIntAggregators.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/aggregators/TestIntAggregators.java
+END
+TestBooleanAggregators.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/aggregators/TestBooleanAggregators.java
+END
+TestLongAggregators.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/aggregators/TestLongAggregators.java
+END
+TestFloatAggregators.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/test/java/org/apache/giraph/aggregators/TestFloatAggregators.java
+END

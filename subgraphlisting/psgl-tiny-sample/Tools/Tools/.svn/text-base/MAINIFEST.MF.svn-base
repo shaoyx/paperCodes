@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: com.graphtools.GraphTools
+Class-Path: lib/commons-cli-1.2/commons-cli-1.2.jar
+

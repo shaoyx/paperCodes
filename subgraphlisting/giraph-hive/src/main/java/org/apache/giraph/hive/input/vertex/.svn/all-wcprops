@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hive/src/main/java/org/apache/giraph/hive/input/vertex
+END
+HiveVertexInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hive/src/main/java/org/apache/giraph/hive/input/vertex/HiveVertexInputFormat.java
+END
+HiveToVertexEdges.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hive/src/main/java/org/apache/giraph/hive/input/vertex/HiveToVertexEdges.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hive/src/main/java/org/apache/giraph/hive/input/vertex/package-info.java
+END
+AbstractHiveToVertexEdges.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hive/src/main/java/org/apache/giraph/hive/input/vertex/AbstractHiveToVertexEdges.java
+END
+HiveToVertexValue.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hive/src/main/java/org/apache/giraph/hive/input/vertex/HiveToVertexValue.java
+END
+HiveVertexReader.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hive/src/main/java/org/apache/giraph/hive/input/vertex/HiveVertexReader.java
+END
+AbstractHiveToVertexValue.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hive/src/main/java/org/apache/giraph/hive/input/vertex/AbstractHiveToVertexValue.java
+END

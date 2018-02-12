@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hbase/src/main/java/org/apache/giraph/io/hbase
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hbase/src/main/java/org/apache/giraph/io/hbase/package-info.java
+END
+HBaseVertexInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hbase/src/main/java/org/apache/giraph/io/hbase/HBaseVertexInputFormat.java
+END
+HBaseVertexOutputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hbase/src/main/java/org/apache/giraph/io/hbase/HBaseVertexOutputFormat.java
+END

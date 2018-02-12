@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests
+END
+SendVertexRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/SendVertexRequest.java
+END
+SendPartitionMutationsRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/SendPartitionMutationsRequest.java
+END
+SendWorkerEdgesRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/SendWorkerEdgesRequest.java
+END
+SaslCompleteRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/SaslCompleteRequest.java
+END
+MasterRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/MasterRequest.java
+END
+SendAggregatorsToOwnerRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/SendAggregatorsToOwnerRequest.java
+END
+SendAggregatorsToMasterRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/SendAggregatorsToMasterRequest.java
+END
+ByteArrayWithSenderTaskIdRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/ByteArrayWithSenderTaskIdRequest.java
+END
+ByteArrayRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/ByteArrayRequest.java
+END
+SendWorkerMessagesRequestFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/SendWorkerMessagesRequestFactory.java
+END
+SaslTokenMessageRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/SaslTokenMessageRequest.java
+END
+SendWorkerAggregatorsRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/SendWorkerAggregatorsRequest.java
+END
+WorkerRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/WorkerRequest.java
+END
+WritableRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/WritableRequest.java
+END
+SendWorkerMessagesRequestWithBuffered.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/SendWorkerMessagesRequestWithBuffered.java
+END
+SendWorkerMessagesRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/SendWorkerMessagesRequest.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/package-info.java
+END
+SendAggregatorsToWorkerRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/SendAggregatorsToWorkerRequest.java
+END
+SendWorkerDataRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/SendWorkerDataRequest.java
+END
+SendPartitionCurrentMessagesRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/SendPartitionCurrentMessagesRequest.java
+END
+RequestType.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-core/src/main/java/org/apache/giraph/comm/requests/RequestType.java
+END

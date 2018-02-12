@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hcatalog/src/main/java/org/apache/hcatalog/mapreduce
+END
+HCatUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hcatalog/src/main/java/org/apache/hcatalog/mapreduce/HCatUtils.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-hcatalog/src/main/java/org/apache/hcatalog/mapreduce/package-info.java
+END

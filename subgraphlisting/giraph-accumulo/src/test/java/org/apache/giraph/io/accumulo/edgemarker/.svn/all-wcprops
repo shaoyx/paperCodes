@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-accumulo/src/test/java/org/apache/giraph/io/accumulo/edgemarker
+END
+AccumuloEdgeInputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-accumulo/src/test/java/org/apache/giraph/io/accumulo/edgemarker/AccumuloEdgeInputFormat.java
+END
+AccumuloEdgeOutputFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-accumulo/src/test/java/org/apache/giraph/io/accumulo/edgemarker/AccumuloEdgeOutputFormat.java
+END

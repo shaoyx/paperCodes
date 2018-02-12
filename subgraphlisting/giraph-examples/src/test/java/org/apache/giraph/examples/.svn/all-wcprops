@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/examples
+END
+RandomWalkTestUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/examples/RandomWalkTestUtils.java
+END
+SimpleShortestPathsVertexTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/examples/SimpleShortestPathsVertexTest.java
+END
+MinimumIntCombinerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/examples/MinimumIntCombinerTest.java
+END
+ConnectedComponentsVertexTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/examples/ConnectedComponentsVertexTest.java
+END
+PageRankVertexTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/examples/PageRankVertexTest.java
+END
+TestPageRank.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/examples/TestPageRank.java
+END
+TryMultiIpcBindingPortsTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/examples/TryMultiIpcBindingPortsTest.java
+END
+SimpleTriangleClosingVertexTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/examples/SimpleTriangleClosingVertexTest.java
+END
+RandomWalkWithRestartVertexTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/yxshao/!svn/ver/740/PAGE/branches/subgraphmatching/giraph-examples/src/test/java/org/apache/giraph/examples/RandomWalkWithRestartVertexTest.java
+END
